@@ -1,6 +1,6 @@
 # Tumor Drug Response Prediction — Multi-Modal Omics + Chemistry
 
-PhD-grade scaffold for predicting cell line drug sensitivity (ln(IC50)) by fusing transcriptomic profiles with chemical structure. The code mirrors the lab-grade workflow used by Halin to bridge RNA-seq and Mass Spec pipelines: careful data curation, dimensionality reduction (PCA/VAE), two-stream neural encoders, stringent splits (leave-cell-line-out / tissue holdout), and SHAP-based biological interpretation.
+Scaffold for predicting cell line drug sensitivity (ln(IC50)) by fusing transcriptomic profiles with chemical structure. The code mirrors the lab-grade workflow used by Halin to bridge RNA-seq and Mass Spec pipelines: careful data curation, dimensionality reduction (PCA/VAE), two-stream neural encoders, stringent splits (leave-cell-line-out / tissue holdout), and SHAP-based biological interpretation.
 
 ## Scientific Aim
 - Hypothesis: a dual-branch model (omics + drug) captures non-linear gene–drug interactions that linear baselines miss.
