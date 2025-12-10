@@ -95,6 +95,10 @@ def train_model(cfg: ExperimentConfig, output_dir: str):
     omics_df, drug_df, labels_df, metadata_df = _load_processed_tables(cfg.data)
     device = torch.device(cfg.training.device if torch.cuda.is_available() or cfg.training.device == "cpu" else "cpu")
 
+    # Adjust model input dimensions based on processed data
+    cfg.model.omics_dim = omics_df.shape[1] - 1
+    cfg.model.drug_dim = drug_df.shape[1] - 1
+
     splits = _build_split(cfg, labels_df, metadata_df)
     split_list = splits if isinstance(splits, list) else [splits]
 

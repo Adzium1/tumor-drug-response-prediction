@@ -23,7 +23,10 @@ def smiles_to_morgan_fp(
     n_bits: int = 1024,
 ) -> np.ndarray:
     """Convert SMILES string to Morgan fingerprint bit vector."""
-    mol = Chem.MolFromSmiles(smiles)
+    if smiles is None or (isinstance(smiles, float) and np.isnan(smiles)):
+        logger.warning("Missing SMILES string encountered; returning zeros.")
+        return np.zeros(n_bits, dtype=np.float32)
+    mol = Chem.MolFromSmiles(str(smiles))
     if mol is None:
         logger.warning("Invalid SMILES string encountered: %s", smiles)
         return np.zeros(n_bits, dtype=np.float32)
@@ -43,7 +46,7 @@ def featurize_drug_table(
     """
     fps = []
     for _, row in drug_df.iterrows():
-        fp = smiles_to_morgan_fp(row["smiles"], n_bits=n_bits)
+        fp = smiles_to_morgan_fp(row.get("smiles"), n_bits=n_bits)
         fps.append(fp)
     fp_array = np.stack(fps)
     fp_cols = [f"fp_{i}" for i in range(n_bits)]

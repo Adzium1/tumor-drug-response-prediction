@@ -1,5 +1,5 @@
 data:
-  processed_dir: "tdrp/data/processed"
+  processed_dir: "data/processed"
   omics_file: "omics.parquet"
   drug_file: "drug_fingerprints.parquet"
   labels_file: "labels.parquet"
@@ -25,4 +25,4 @@ training:
   tissue_holdout: null
   seed: 42
   num_workers: 4
-  device: "cuda"
+  device: "cpu"

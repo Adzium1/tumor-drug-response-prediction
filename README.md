@@ -1,62 +1,63 @@
 # Tumor Drug Response Prediction - Multi-Modal Omics + Chemistry (TDRP)
 
-Predict ln(IC50) for cell line - drug pairs by fusing gene expression with drug structure fingerprints. The working hypothesis: combining denoised omics representations with chemical fingerprints improves generalization to unseen cell lines or tissues.
+Predict ln(IC50) for cell line - drug pairs by fusing gene expression with drug structure fingerprints. The goal is to generalize to unseen cell lines or tissues by combining omics and chemistry.
 
 ## Data expectations
-- `expression.csv`: `cell_line`, gene1, gene2, ..., geneN
-- `labels.csv`: `cell_line`, `drug`, `ln_ic50`
-- `drugs.csv`: `drug`, `smiles`
-- `metadata.csv` (optional): `cell_line`, `tissue` (and other annotations)
+- `data/raw/GDSC2_fitted_dose_response_27Oct23.xlsx`
+- `data/raw/Cell_Lines_Details.xlsx`
+- `data/raw/screened_compounds_rel_8.5.csv`
+- `data/raw/TableS1A.xlsx` (expression matrix)
 
 ## Project layout
 ```
-tdrp/
-  configs/default.yaml
-  data/{raw,processed,external}/
-  scripts/{preprocess_gdsc.py,train.py,explain.py}
-  src/tdrp/...  # config, utils, data, featurizers, models, training, analysis
-  requirements.txt
-  pyproject.toml
+configs/default.yaml
+data/{raw,processed,external}/
+scripts/{preprocess_gdsc.py,train.py,explain.py,eda_gdsc2.py}
+src/tdrp/...  # config, utils, data, featurizers, models, training, analysis
+requirements.txt
+pyproject.toml
 ```
 
 ## Installation
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # or .venv\Scripts\activate on Windows
-pip install -r tdrp/requirements.txt
+pip install -r requirements.txt
 # RDKit is best installed via conda:
 conda install -c conda-forge rdkit
 ```
 
 ## Usage
-### Preprocess GDSC-style tables
+### EDA on raw GDSC2 files
 ```bash
-python tdrp/scripts/preprocess_gdsc.py \
-  --expression tdrp/data/raw/expression.csv \
-  --labels tdrp/data/raw/labels.csv \
-  --drug-smiles tdrp/data/raw/drugs.csv \
-  --metadata tdrp/data/raw/metadata.csv \
-  --outdir tdrp/data/processed \
+python scripts/eda_gdsc2.py
+```
+
+### Preprocess GDSC2 into parquet tables
+```bash
+python scripts/preprocess_gdsc.py \
+  --raw-dir data/raw \
+  --outdir data/processed \
   --n-genes 2000 \
   --fingerprint-bits 1024
 ```
 
 ### Train
 ```bash
-python tdrp/scripts/train.py --config tdrp/configs/default.yaml --output tdrp/outputs
+python scripts/train.py --config configs/default.yaml --output outputs/gdsc2_run1
 ```
 
 ### Explain with SHAP
 ```bash
-python tdrp/scripts/explain.py \
-  --config tdrp/configs/default.yaml \
-  --checkpoint tdrp/outputs/model_fold0.pt \
-  --output tdrp/outputs/shap_values.npz \
+python scripts/explain.py \
+  --config configs/default.yaml \
+  --checkpoint outputs/gdsc2_run1/model.pt \
+  --output outputs/gdsc2_run1/shap_values.npz \
   --sample-size 500 \
   --background-size 100
 ```
 
 ## Extending
-- Swap PCA or MLP encoders with the VAE by toggling `model.use_vae` or adjusting latent dims in config.
+- Switch between PCA/MLP and VAE encoders via config (`model.use_vae`, latent dims).
 - Replace Morgan fingerprints with a graph featurizer (stub in `tdrp/featurizers/drugs.py`).
 - Evaluate generalization with `split_strategy=tissue_holdout` to hold out specific tissues.

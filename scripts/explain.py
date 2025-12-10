@@ -13,9 +13,9 @@ from tdrp.utils.logging import setup_logging
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Compute SHAP values for TDRP model.")
-    parser.add_argument("--config", default="tdrp/configs/default.yaml", help="Path to config YAML.")
+    parser.add_argument("--config", default="configs/default.yaml", help="Path to config YAML.")
     parser.add_argument("--checkpoint", required=True, help="Path to model checkpoint (.pt).")
-    parser.add_argument("--output", default="tdrp/outputs/shap_values.npz", help="Output .npz file path.")
+    parser.add_argument("--output", default="outputs/shap_values.npz", help="Output .npz file path.")
     parser.add_argument("--sample-size", type=int, default=1000, help="Number of samples to explain.")
     parser.add_argument("--background-size", type=int, default=100, help="Background sample size for SHAP.")
     parser.add_argument("--device", default="cpu", help="Device for model evaluation.")
@@ -29,6 +29,9 @@ def main():
     omics_df = load_parquet(Path(cfg.data.processed_dir) / cfg.data.omics_file)
     drug_df = load_parquet(Path(cfg.data.processed_dir) / cfg.data.drug_file)
     labels_df = load_parquet(Path(cfg.data.processed_dir) / cfg.data.labels_file)
+
+    cfg.model.omics_dim = omics_df.shape[1] - 1
+    cfg.model.drug_dim = drug_df.shape[1] - 1
 
     device = torch.device(args.device)
     model = TDRPModel(cfg.model).to(device)

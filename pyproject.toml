@@ -19,6 +19,8 @@ dependencies = [
   "rdkit-pypi",
   "matplotlib",
   "shap",
+  "seaborn",
+  "openpyxl",
 ]
 
 [project.urls]
