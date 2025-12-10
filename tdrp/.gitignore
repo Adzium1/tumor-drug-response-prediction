@@ -1,0 +1,12 @@
+# Data directories
+data/raw/
+data/processed/
+data/external/
+outputs/
+
+# Python artifacts
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+*.pyc
+.DS_Store

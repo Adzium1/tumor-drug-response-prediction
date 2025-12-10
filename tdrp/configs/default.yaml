@@ -1,0 +1,28 @@
+data:
+  processed_dir: "tdrp/data/processed"
+  omics_file: "omics.parquet"
+  drug_file: "drug_fingerprints.parquet"
+  labels_file: "labels.parquet"
+  metadata_file: "metadata.parquet"
+  n_genes: 2000
+  fingerprint_bits: 1024
+
+model:
+  use_vae: false
+  omics_dim: 2000
+  omics_latent_dim: 128
+  drug_dim: 1024
+  fusion_hidden_dims: [256, 128]
+  dropout: 0.2
+
+training:
+  batch_size: 128
+  lr: 0.001
+  weight_decay: 0.0001
+  max_epochs: 100
+  split_strategy: "leave_cell_line_out"
+  k_folds: 5
+  tissue_holdout: null
+  seed: 42
+  num_workers: 4
+  device: "cuda"
