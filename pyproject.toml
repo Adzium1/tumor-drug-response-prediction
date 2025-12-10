@@ -16,11 +16,11 @@ dependencies = [
   "torch",
   "pyyaml",
   "tqdm",
-  "rdkit-pypi",
   "matplotlib",
   "shap",
   "seaborn",
   "openpyxl",
+  "pyarrow",
 ]
 
 [project.urls]

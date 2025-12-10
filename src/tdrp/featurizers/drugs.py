@@ -5,13 +5,14 @@ from typing import Optional
 import numpy as np
 import pandas as pd
 
-try:
-    from rdkit import Chem, DataStructs
-    from rdkit.Chem import AllChem
-except ImportError as exc:
-    raise ImportError(
-        "RDKit is required for drug featurization. Install via conda: conda install -c conda-forge rdkit"
-    ) from exc
+# Lazy import RDKit to allow environments without it to still run other parts.
+def _import_rdkit():
+    try:
+        from rdkit import Chem, DataStructs  # type: ignore
+        from rdkit.Chem import AllChem  # type: ignore
+        return Chem, DataStructs, AllChem
+    except ImportError:
+        return None, None, None
 
 
 logger = logging.getLogger(__name__)
@@ -23,6 +24,13 @@ def smiles_to_morgan_fp(
     n_bits: int = 1024,
 ) -> np.ndarray:
     """Convert SMILES string to Morgan fingerprint bit vector."""
+    Chem, DataStructs, AllChem = _import_rdkit()
+    if Chem is None or DataStructs is None or AllChem is None:
+        logger.warning(
+            "RDKit not available; returning zero fingerprint for SMILES. "
+            "Install via conda: conda install -c conda-forge rdkit"
+        )
+        return np.zeros(n_bits, dtype=np.float32)
     if smiles is None or (isinstance(smiles, float) and np.isnan(smiles)):
         logger.warning("Missing SMILES string encountered; returning zeros.")
         return np.zeros(n_bits, dtype=np.float32)

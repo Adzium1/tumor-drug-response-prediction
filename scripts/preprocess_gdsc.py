@@ -1,7 +1,14 @@
 import argparse
 from pathlib import Path
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.append(str(SRC))
 
 from tdrp.data.gdsc2_preprocess import preprocess_gdsc2
+from tdrp.utils.io import load_parquet
 from tdrp.utils.logging import setup_logging
 
 
@@ -24,10 +31,14 @@ def main():
         fingerprint_bits=args.fingerprint_bits,
     )
     processed_path = Path(args.outdir)
-    print("Saved omics:", (processed_path / "omics.parquet").resolve())
-    print("Saved drug_fingerprints:", (processed_path / "drug_fingerprints.parquet").resolve())
-    print("Saved labels:", (processed_path / "labels.parquet").resolve())
-    print("Saved metadata:", (processed_path / "metadata.parquet").resolve())
+    omics_df = load_parquet(processed_path / "omics.parquet")
+    drug_fp_df = load_parquet(processed_path / "drug_fingerprints.parquet")
+    labels_df = load_parquet(processed_path / "labels.parquet")
+    metadata_df = load_parquet(processed_path / "metadata.parquet")
+    print("Saved omics:", (processed_path / "omics.parquet").resolve(), "shape", omics_df.shape)
+    print("Saved drug_fingerprints:", (processed_path / "drug_fingerprints.parquet").resolve(), "shape", drug_fp_df.shape)
+    print("Saved labels:", (processed_path / "labels.parquet").resolve(), "shape", labels_df.shape)
+    print("Saved metadata:", (processed_path / "metadata.parquet").resolve(), "shape", metadata_df.shape)
 
 
 if __name__ == "__main__":

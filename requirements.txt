@@ -1,11 +1,11 @@
-﻿numpy
+numpy
 pandas
 scikit-learn
 torch
 pyyaml
 tqdm
-rdkit-pypi
 matplotlib
 shap
 seaborn
 openpyxl
+pyarrow

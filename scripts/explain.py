@@ -1,8 +1,14 @@
 import argparse
 import logging
 from pathlib import Path
+import sys
 import numpy as np
 import torch
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.append(str(SRC))
 
 from tdrp.config import load_config
 from tdrp.models.fusion import TDRPModel
