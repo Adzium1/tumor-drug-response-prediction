@@ -1,12 +1,3 @@
-# Data directories
-data/raw/
-src/tdrp/data/raw/
-data/processed/*
-!data/processed/eda/
-!data/processed/eda/**
-data/external/
-outputs/
-
 # Python artifacts
 __pycache__/
 .pytest_cache/
