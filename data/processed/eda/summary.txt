@@ -1,0 +1,7 @@
+Metadata: rows=1002, missing_cosmic=1, duplicate_cosmic=0, unique_tissues=19
+Drugs: rows=621, unique_drug_id=621
+Dose-response: rows=242036, unique_cells=969, unique_drugs=295, coverage=0.8467, dup_pairs=0
+Dose-response missing keys: {'cosmic_id': 0, 'sanger_model_id': 0, 'drug_id': 0, 'ln_ic50': 0}
+Expression: samples=1018, genes=17419, missing_values=0
+Overlap expression vs metadata cosmic: 968
+Overlap expression vs labels cosmic: 941
