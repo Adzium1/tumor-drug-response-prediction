@@ -89,7 +89,9 @@ def main() -> None:
         tissue_col="tissue",
     )
 
-    random_split = make_random_pair_split(filtered, seed=args.seed, split_col="split")
+    random_split = make_random_pair_split(filtered, seed=args.seed, split_col="split", stratify_by_tissue=True)
+    # Explicit tissue stratification (default) preserves tissue proportions across splits
+    # to mirror observed clustering in PCA.
     _save_split(random_split, outdir / "random_pair_split.csv", split_col="split")
 
     cell_holdout = make_cellline_holdout_split(

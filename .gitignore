@@ -1,3 +1,11 @@
+# Data directories
+data/raw/
+data/external/
+data/processed/*
+!data/processed/eda/
+!data/processed/eda/**
+outputs/
+
 # Python artifacts
 __pycache__/
 .pytest_cache/

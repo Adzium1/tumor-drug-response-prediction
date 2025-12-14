@@ -115,35 +115,45 @@ def make_random_pair_split(
     val_frac: float = 0.15,
     seed: int = 42,
     split_col: str = "split",
+    stratify_by_tissue: bool = True,
+    tissue_col: str = "tissue",
 ) -> pd.DataFrame:
     """
-    Stratified random split by drug: within each drug, assign rows to train/val/test.
+    Random split of observed pairs with optional tissue stratification.
 
-    Ensures every observed (cell_line, drug) pair is in exactly one split and that
-    each drug is represented in all splits when possible.
+    If `stratify_by_tissue` and the tissue column is present, each tissue slice is
+    split independently to maintain tissue proportions (important when PCA shows
+    strong tissue structure). Otherwise falls back to stratifying within each drug.
     """
-    if "drug" not in df.columns:
-        raise ValueError("Input DataFrame must contain a 'drug' column.")
     rng = np.random.default_rng(seed)
     result = df.copy()
     result[split_col] = ""
     test_frac = 1.0 - train_frac - val_frac
     if test_frac <= 0:
         raise ValueError("train_frac + val_frac must be < 1.0")
-    for drug, sub in result.groupby("drug"):
-        idx = sub.index.to_numpy()
+
+    def _assign(idx: np.ndarray):
         rng.shuffle(idx)
         n = len(idx)
         n_train = int(n * train_frac)
         n_val = int(n * val_frac)
         n_test = n - n_train - n_val
-        # Guarantee at least one example per split if enough rows
         if n_test == 0 and n > 0:
             n_test = 1
             n_train = max(1, n_train - 1)
         result.loc[idx[:n_train], split_col] = "train"
         result.loc[idx[n_train : n_train + n_val], split_col] = "val"
         result.loc[idx[n_train + n_val :], split_col] = "test"
+
+    if stratify_by_tissue and tissue_col in result.columns:
+        for tissue, sub in result.groupby(tissue_col):
+            _assign(sub.index.to_numpy())
+    else:
+        if "drug" not in result.columns:
+            raise ValueError("Input DataFrame must contain a 'drug' column when not stratifying by tissue.")
+        for _, sub in result.groupby("drug"):
+            _assign(sub.index.to_numpy())
+
     _log_split_summary(result, split_col, context="random pair-wise")
     return result
 
@@ -239,10 +249,12 @@ def _log_split_summary(df: pd.DataFrame, split_col: str, context: str) -> None:
     counts = df[split_col].value_counts()
     cell_counts = df.groupby(split_col)["cell_line"].nunique()
     drug_counts = df.groupby(split_col)["drug"].nunique()
+    tissue_counts = df.groupby(split_col)["tissue"].nunique() if "tissue" in df.columns else {}
     logger.info(
-        "[%s] pairs per split: %s | cell lines: %s | drugs: %s",
+        "[%s] pairs per split: %s | cell lines: %s | drugs: %s%s",
         context,
         counts.to_dict(),
         cell_counts.to_dict(),
         drug_counts.to_dict(),
+        f" | tissues: {tissue_counts.to_dict()}" if isinstance(tissue_counts, pd.Series) else "",
     )
