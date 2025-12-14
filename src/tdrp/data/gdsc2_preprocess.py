@@ -189,6 +189,10 @@ def load_rnaseq_expression(
 
     expr = expr.set_index("cell_line")
     expr = expr.dropna(axis=1, how="all")
+    # Drop unnamed columns and collapse duplicate gene symbols by averaging.
+    expr = expr.loc[:, ~expr.columns.isna()]
+    if expr.columns.has_duplicates:
+        expr = expr.groupby(expr.columns, axis=1).mean()
     expr = _select_top_genes(expr, n_genes=n_genes)
     expr = (expr - expr.mean()) / expr.std(ddof=0)
     expr = expr.astype(np.float32)
