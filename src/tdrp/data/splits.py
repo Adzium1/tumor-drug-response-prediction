@@ -14,6 +14,11 @@ def leave_cell_line_out_split(
     test_frac: float = 0.2,
     seed: int = 42,
 ) -> tuple[pd.Index, pd.Index]:
+    """
+    Legacy helper: hold out random cell lines (ignores tissue).
+
+    Returns train and test indices over the rows of `labels_df`.
+    """
     rng = np.random.default_rng(seed)
     cell_lines = labels_df["cell_line"].unique()
     rng.shuffle(cell_lines)
@@ -29,6 +34,9 @@ def tissue_holdout_split(
     metadata_df: pd.DataFrame,
     tissue_name: str,
 ) -> tuple[pd.Index, pd.Index]:
+    """
+    Legacy helper: hold out all pairs from a given tissue.
+    """
     if metadata_df is None:
         raise ValueError("Metadata is required for tissue holdout split.")
     if "tissue" not in metadata_df.columns:
@@ -45,6 +53,9 @@ def kfold_cell_line_splits(
     k: int,
     seed: int = 42,
 ) -> list[tuple[pd.Index, pd.Index]]:
+    """
+    Legacy helper: k-fold cross-validation splitting by cell line.
+    """
     rng = np.random.default_rng(seed)
     cell_lines = labels_df["cell_line"].unique()
     rng.shuffle(cell_lines)
@@ -66,13 +77,15 @@ def filter_entities(
     tissue_col: str = "tissue",
 ) -> pd.DataFrame:
     """
-    Iteratively drop drugs and cell lines with too few measurements.
+    Iteratively drop drugs and cell lines with low coverage.
 
-    A drug is kept if it has measurements for at least `min_drug_frac` of the
-    remaining cell lines. A cell line is kept if it has measurements for at
-    least `min_cell_frac` of the remaining drugs. The procedure repeats until
-    convergence. Optionally drop tissues with fewer than `tissue_min_cells`
-    distinct cell lines.
+    Coverage is defined as:
+    - drug coverage: fraction of cell lines with an observation for that drug
+    - cell-line coverage: fraction of drugs observed for that cell line
+
+    Filtering repeats until stable. Optionally drops tissues with fewer than
+    `tissue_min_cells` remaining cell lines. Expects at minimum columns
+    `cell_line` and `drug`; `tissue` is only needed when `tissue_min_cells` is set.
     """
     required_cols = {"cell_line", "drug"}
     missing = required_cols - set(df.columns)
@@ -106,6 +119,18 @@ def filter_entities(
         filtered["drug"].nunique(),
         f", tissues={filtered[tissue_col].nunique()}" if tissue_col in filtered.columns else "",
     )
+    # Health report: coverage stats
+    n_cells = max(filtered["cell_line"].nunique(), 1)
+    n_drugs = max(filtered["drug"].nunique(), 1)
+    drug_frac = filtered.groupby("drug")["cell_line"].nunique() / n_cells
+    cell_frac = filtered.groupby("cell_line")["drug"].nunique() / n_drugs
+    logger.info(
+        "Coverage stats - drug frac (min/median): %.1f%% / %.1f%% | cell frac (min/median): %.1f%% / %.1f%%",
+        100 * drug_frac.min(),
+        100 * drug_frac.median(),
+        100 * cell_frac.min(),
+        100 * cell_frac.median(),
+    )
     return filtered.reset_index(drop=True)
 
 
@@ -113,24 +138,25 @@ def make_random_pair_split(
     df: pd.DataFrame,
     train_frac: float = 0.7,
     val_frac: float = 0.15,
+    test_frac: float = 0.15,
     seed: int = 42,
     split_col: str = "split",
-    stratify_by_tissue: bool = True,
+    stratify_by: str = "tissue",
     tissue_col: str = "tissue",
 ) -> pd.DataFrame:
     """
-    Random split of observed pairs with optional tissue stratification.
+    Random split of observed (cell_line, drug) pairs.
 
-    If `stratify_by_tissue` and the tissue column is present, each tissue slice is
-    split independently to maintain tissue proportions (important when PCA shows
-    strong tissue structure). Otherwise falls back to stratifying within each drug.
+    Stratifies by tissue (default) to preserve tissue proportions seen in PCA and
+    serves as a baseline IID-like split. If `stratify_by="drug"` or tissue is
+    unavailable, stratifies within each drug. Expects columns: `cell_line`,
+    `drug`, and optionally `tissue`.
     """
     rng = np.random.default_rng(seed)
     result = df.copy()
     result[split_col] = ""
-    test_frac = 1.0 - train_frac - val_frac
-    if test_frac <= 0:
-        raise ValueError("train_frac + val_frac must be < 1.0")
+    if abs(train_frac + val_frac + test_frac - 1.0) > 1e-6:
+        raise ValueError("train_frac + val_frac + test_frac must equal 1.0")
 
     def _assign(idx: np.ndarray):
         rng.shuffle(idx)
@@ -145,7 +171,7 @@ def make_random_pair_split(
         result.loc[idx[n_train : n_train + n_val], split_col] = "val"
         result.loc[idx[n_train + n_val :], split_col] = "test"
 
-    if stratify_by_tissue and tissue_col in result.columns:
+    if stratify_by == "tissue" and tissue_col in result.columns:
         for tissue, sub in result.groupby(tissue_col):
             _assign(sub.index.to_numpy())
     else:
@@ -163,16 +189,18 @@ def make_cellline_holdout_split(
     tissue_col: str = "tissue",
     train_frac: float = 0.7,
     val_frac: float = 0.15,
+    test_frac: float = 0.15,
     seed: int = 42,
     split_col: str = "split",
     min_tissue_cells: int = 25,
 ) -> pd.DataFrame:
     """
-    Stratified split where cell lines (not pairs) are held out, grouped by tissue.
+    Cell-line holdout split stratified by tissue.
 
     For each tissue with at least `min_tissue_cells` cell lines, assign cell lines
     into train/val/test (70/15/15 by default). All pairs for those cell lines
-    follow their split assignment.
+    follow their split assignment. Tests generalization to unseen cell lines within
+    the same tissues.
     """
     required_cols = {"cell_line", tissue_col}
     missing = required_cols - set(df.columns)
@@ -186,16 +214,18 @@ def make_cellline_holdout_split(
     )
     eligible_tissues = eligible_tissues[eligible_tissues >= min_tissue_cells].index.tolist()
     result = result[result[tissue_col].isin(eligible_tissues)]
-    test_frac = 1.0 - train_frac - val_frac
+    if abs(train_frac + val_frac + test_frac - 1.0) > 1e-6:
+        raise ValueError("train_frac + val_frac + test_frac must equal 1.0")
     for tissue in eligible_tissues:
         cells = result.loc[result[tissue_col] == tissue, "cell_line"].unique()
         rng.shuffle(cells)
         n = len(cells)
         n_train = max(1, int(n * train_frac))
         n_val = max(1, int(n * val_frac))
-        if n_train + n_val >= n:
-            n_val = max(1, n - n_train - 1)
         n_test = n - n_train - n_val
+        if n_test <= 0:
+            n_test = 1
+            n_train = max(1, n_train - 1)
         train_cells = set(cells[:n_train])
         val_cells = set(cells[n_train : n_train + n_val])
         test_cells = set(cells[n_train + n_val :])
@@ -211,6 +241,7 @@ def make_tissue_holdout_split(
     tissue_col: str = "tissue",
     test_tissues: Sequence[str] = (),
     train_frac: float = 0.8,
+    val_frac: float = 0.2,
     seed: int = 42,
     split_col: str = "split",
 ) -> pd.DataFrame:
@@ -219,6 +250,7 @@ def make_tissue_holdout_split(
 
     - All pairs from tissues in `test_tissues` are assigned to the test split.
     - Remaining tissues' cell lines are split train/val (e.g., 80/20).
+    Tests hardest generalization: unseen tissues.
     """
     if tissue_col not in df.columns:
         raise ValueError(f"Input DataFrame must contain a '{tissue_col}' column.")
@@ -235,6 +267,8 @@ def make_tissue_holdout_split(
         cells = remaining.loc[remaining[tissue_col] == tissue, "cell_line"].unique()
         rng.shuffle(cells)
         n = len(cells)
+        if abs(train_frac + val_frac - 1.0) > 1e-6:
+            raise ValueError("train_frac + val_frac must equal 1.0 for tissue holdout.")
         n_train = max(1, int(n * train_frac))
         n_val = n - n_train
         train_cells = set(cells[:n_train])
@@ -258,3 +292,21 @@ def _log_split_summary(df: pd.DataFrame, split_col: str, context: str) -> None:
         drug_counts.to_dict(),
         f" | tissues: {tissue_counts.to_dict()}" if isinstance(tissue_counts, pd.Series) else "",
     )
+    # Per-split coverage summary (min/median)
+    for split_name, sub in df.groupby(split_col):
+        if sub.empty:
+            logger.warning("[%s | %s] split is empty", context, split_name)
+            continue
+        n_cells = max(sub["cell_line"].nunique(), 1)
+        n_drugs = max(sub["drug"].nunique(), 1)
+        drug_frac = sub.groupby("drug")["cell_line"].nunique() / n_cells
+        cell_frac = sub.groupby("cell_line")["drug"].nunique() / n_drugs
+        logger.info(
+            "[%s | %s] drug coverage min/median=%.1f%%/%.1f%% | cell coverage min/median=%.1f%%/%.1f%%",
+            context,
+            split_name,
+            100 * drug_frac.min(),
+            100 * drug_frac.median(),
+            100 * cell_frac.min(),
+            100 * cell_frac.median(),
+        )

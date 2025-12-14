@@ -37,7 +37,9 @@ from tdrp.utils.logging import setup_logging
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Build filtered datasets and splits.")
+    parser = argparse.ArgumentParser(
+        description="Filter dose-response pairs and emit random, cell-line, and tissue holdout splits."
+    )
     parser.add_argument("--config", default="configs/default.yaml", help="Path to experiment config YAML.")
     parser.add_argument("--outdir", default="data/processed/splits", help="Where to save split CSVs.")
     parser.add_argument("--min-drug-frac", type=float, default=0.7, help="Min fraction of cell lines per drug.")
@@ -54,6 +56,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def _load_with_tissue(cfg, base: Path):
+    """Merge labels and metadata (must contain 'tissue')."""
     labels_path = base / cfg.data.labels_file
     meta_path = base / (cfg.data.metadata_file or "")
     labels = load_parquet(labels_path)
@@ -89,8 +92,8 @@ def main() -> None:
         tissue_col="tissue",
     )
 
-    random_split = make_random_pair_split(filtered, seed=args.seed, split_col="split", stratify_by_tissue=True)
-    # Explicit tissue stratification (default) preserves tissue proportions across splits
+    random_split = make_random_pair_split(filtered, seed=args.seed, split_col="split", stratify_by="tissue")
+    # Explicit tissue stratification preserves tissue proportions across splits
     # to mirror observed clustering in PCA.
     _save_split(random_split, outdir / "random_pair_split.csv", split_col="split")
 
