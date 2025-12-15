@@ -31,6 +31,7 @@ from sklearn.decomposition import PCA
 from sklearn.metrics import mean_squared_error
 from sklearn.neural_network import MLPRegressor
 from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
 
 
 def pearsonr(x: np.ndarray, y: np.ndarray) -> float:
@@ -78,7 +79,14 @@ def build_features(
     return X, y
 
 
-def train_one_split(processed_dir: Path, split_csv: Path, outdir: Path, n_omics_pca: int, n_drug_pca: int):
+def train_one_split(
+    processed_dir: Path,
+    split_csv: Path,
+    outdir: Path,
+    n_omics_pca: int,
+    n_drug_pca: int,
+    hidden_layers: tuple[int, ...],
+):
     outdir.mkdir(parents=True, exist_ok=True)
     tables = load_processed(processed_dir)
     split_df = pd.read_csv(split_csv)
@@ -117,7 +125,7 @@ def train_one_split(processed_dir: Path, split_csv: Path, outdir: Path, n_omics_
     )
 
     mlp = MLPRegressor(
-        hidden_layer_sizes=(256, 128),
+        hidden_layer_sizes=hidden_layers,
         activation="relu",
         solver="adam",
         learning_rate_init=1e-3,
@@ -134,7 +142,7 @@ def train_one_split(processed_dir: Path, split_csv: Path, outdir: Path, n_omics_
         preds = mlp.predict(X)
         rmse = float(np.sqrt(np.mean((y - preds) ** 2)))
         r = pearsonr(y, preds)
-        return {"rmse": rmse, "pearson": r}
+        return {"rmse": rmse, "pearson": r, "y": y, "pred": preds}
 
     metrics = {
         "train": eval_split("train", X_train, y_train),
@@ -145,6 +153,7 @@ def train_one_split(processed_dir: Path, split_csv: Path, outdir: Path, n_omics_
         "n_test": int(len(test_df)),
         "omics_pca": int(pca_omics.n_components_),
         "drug_pca": int(pca_drug.n_components_),
+        "hidden_layers": list(hidden_layers),
     }
 
     pd.DataFrame([metrics]).to_json(outdir / "metrics.json", orient="records", lines=True)
@@ -152,6 +161,78 @@ def train_one_split(processed_dir: Path, split_csv: Path, outdir: Path, n_omics_
     for split in ["train", "val", "test"]:
         m = metrics[split]
         print(f"{split}: RMSE={m['rmse']:.3f} Pearson={m['pearson']:.3f}")
+
+    # Save predictions with identifiers for downstream plots.
+    for split_name, df_split, eval_res in [
+        ("train", train_df, metrics["train"]),
+        ("val", val_df, metrics["val"]),
+        ("test", test_df, metrics["test"]),
+    ]:
+        out_csv = outdir / f"preds_{split_name}.csv"
+        preds_df = df_split.copy()
+        preds_df["pred"] = eval_res["pred"]
+        preds_df.to_csv(out_csv, index=False)
+
+    # Plot predicted vs true for test
+    y_true = metrics["test"]["y"]
+    y_pred = metrics["test"]["pred"]
+    plt.figure(figsize=(6, 6))
+    plt.scatter(y_true, y_pred, alpha=0.3, s=10)
+    lims = [min(y_true.min(), y_pred.min()), max(y_true.max(), y_pred.max())]
+    plt.plot(lims, lims, "r--", label="y=x")
+    plt.xlabel("True ln(IC50)")
+    plt.ylabel("Pred ln(IC50)")
+    plt.title(f"Pred vs True ({split_csv.name})")
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(outdir / "pred_vs_true_test.png", dpi=200)
+    plt.close()
+
+    # Residual histogram
+    resid = y_true - y_pred
+    plt.figure(figsize=(6, 4))
+    plt.hist(resid, bins=40, color="steelblue", alpha=0.8)
+    plt.xlabel("Residual (true - pred)")
+    plt.ylabel("Count")
+    plt.title(f"Residuals ({split_csv.name})")
+    plt.tight_layout()
+    plt.savefig(outdir / "residuals_test.png", dpi=200)
+    plt.close()
+
+    # Per-drug/per-tissue bars (top 15 by count)
+    def per_group(df: pd.DataFrame, group_col: str, prefix: str):
+        grp = df.groupby(group_col)
+        stats = []
+        for name, g in grp:
+            if len(g) < 5:
+                continue
+            y = g["ln_ic50"].values
+            p = g["pred"].values
+            stats.append(
+                {
+                    group_col: name,
+                    "n": len(g),
+                    "rmse": float(np.sqrt(np.mean((y - p) ** 2))),
+                    "pearson": pearsonr(y, p),
+                }
+            )
+        if not stats:
+            return
+        df_stats = pd.DataFrame(stats).sort_values("pearson", ascending=False).head(15)
+        plt.figure(figsize=(8, 4))
+        plt.bar(df_stats[group_col].astype(str), df_stats["pearson"], color="teal")
+        plt.xticks(rotation=60, ha="right")
+        plt.ylabel("Pearson r")
+        plt.title(f"{prefix} per-{group_col} (top 15 by r)")
+        plt.tight_layout()
+        plt.savefig(outdir / f"{prefix}_per_{group_col}.png", dpi=200)
+        plt.close()
+
+    test_preds = pd.read_csv(outdir / "preds_test.csv")
+    per_group(test_preds, "drug", "test")
+    if "tissue" in test_preds.columns:
+        per_group(test_preds, "tissue", "test")
+
     return metrics
 
 
@@ -160,9 +241,17 @@ def main():
     ap.add_argument("--processed-dir", default="data/processed", help="Directory with parquet files.")
     ap.add_argument("--split-csv", required=True, help="Path to split CSV (random_pair_split.csv, etc.)")
     ap.add_argument("--outdir", required=True, help="Output directory for metrics.json")
-    ap.add_argument("--omics-pca", type=int, default=128, help="PCA components for omics.")
+    ap.add_argument("--omics-pca", type=int, default=256, help="PCA components for omics.")
     ap.add_argument("--drug-pca", type=int, default=128, help="PCA components for drug fingerprints.")
+    ap.add_argument(
+        "--hidden-layers",
+        type=str,
+        default="512,256",
+        help="Comma-separated hidden layer sizes for the MLP.",
+    )
     args = ap.parse_args()
+
+    hidden = tuple(int(x) for x in args.hidden_layers.split(",") if x)
 
     train_one_split(
         processed_dir=Path(args.processed_dir),
@@ -170,6 +259,7 @@ def main():
         outdir=Path(args.outdir),
         n_omics_pca=args.omics_pca,
         n_drug_pca=args.drug_pca,
+        hidden_layers=hidden,
     )
 
 
