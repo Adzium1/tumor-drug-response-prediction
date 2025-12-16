@@ -18,6 +18,7 @@ from .gdsc2_preprocess import (
     align_all,
     preprocess_gdsc2,
 )
+from .dataset import TabularDataset
 from .splits import (
     leave_cell_line_out_split,
     tissue_holdout_split,
@@ -43,6 +44,7 @@ __all__ = [
     "load_rnaseq_expression",
     "align_all",
     "preprocess_gdsc2",
+    "TabularDataset",
     "leave_cell_line_out_split",
     "tissue_holdout_split",
     "kfold_cell_line_splits",
