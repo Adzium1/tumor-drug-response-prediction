@@ -14,25 +14,6 @@ Predict ln(IC50) for cell line–drug pairs by fusing gene expression with drug 
 - `screened_compounds_rel_8.5.csv` – drug IDs, targets, SMILES.
 - `TableS1A.xlsx` or `rnaseq_*20191101*.{txt,csv}` – RNA-seq expression matrix.
 
-## Project layout
-```
-configs/default.yaml               # experiment defaults (dims, splits, device)
-data/raw/                          # raw GDSC2 inputs (not tracked)
-data/processed/                    # parquet tables + split CSVs
-data/processed/eda/                # lightweight EDA plots (tracked)
-outputs/                           # model artifacts, predictions, plots
-scripts/
-  eda_gdsc2.py                     # sanity checks/plots on raw inputs
-  preprocess_gdsc.py               # build omics/drug/labels/metadata parquet
-  make_splits.py                   # filter + random/cell/tissue splits
-  train.py                         # torch fusion model training
-  train_baseline_ml.py             # PCA+MLP baseline on split CSVs
-  explain.py                       # SHAP export for trained torch model
-  plot_embeddings.py               # project learned embeddings (PCA/UMAP)
-src/tdrp/                          # config, utils, featurizers, models, training, analysis
-requirements.txt, pyproject.toml   # deps (install RDKit via conda)
-```
-
 ## Installation
 ```bash
 python -m venv .venv
