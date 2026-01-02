@@ -1,0 +1,265 @@
+drug,drug_name,synonyms,smiles,smiles_source
+59,WZ-1-84,KIN001-123,,missing
+83,JW-7-52-1,,,missing
+164,JQ12,,,missing
+211,TL-2-105,,,missing
+225,Genentech Cpd 10,,,missing
+235,QL-XII-47,,,missing
+252,WZ3105,,,missing
+253,XMD14-99,,,missing
+256,JW-7-24-1,,,missing
+257,NPK76-II-72-1,,,missing
+261,TL-1-85,,,missing
+271,VNLG/124,HDAC inhibitor XV,,missing
+286,KIN001-236,,,missing
+287,KIN001-244,PDK1 inhibitor 7,,missing
+289,KIN001-042,,,missing
+290,KIN001-260,"Bayer IKKb inhibitor, ACHP",,missing
+291,KIN001-266,,,missing
+294,MPS-1-IN-1,,,missing
+329,QL-XI-92,,,missing
+330,XMD13-2,,,missing
+332,XMD15-27,,,missing
+344,THZ-2-49,,,missing
+345,KIN001-270,"CDK9 inhibitor, CDK9-IN-1",,missing
+346,THZ-2-102-1,,,missing
+376,"Brivanib, BMS-540215",,,missing
+406,LIMK1 inhibitor BMS4,,,missing
+409,"eEF2K Inhibitor, A-484954",,,missing
+410,"MetAP2 Inhibitor, A832234",,,missing
+412,Venotoclax,"ABT-199, Veneclexta, GDC-0199",,missing
+436,"CAP-232, TT-232, TLN-232",,,missing
+1003,Camptothecin,"Camptothecine, (+)-Camptothecin",,missing
+1034,Staurosporine,,,missing
+1047,Nutlin-3a (-),,,missing
+1048,Mirin,,,missing
+1070,CRT0105950,,,missing
+1071,CRT0105446,,,missing
+1088,Irinotecan,"Camptosar, (+)-Irinotecan, Irinotecanum, irinotecan hydrochloride",,missing
+1089,Oxaliplatin,Eloxatin,,missing
+1114,Cetuximab,"Erbitux, IMC-C225, C225, IMC-225, L01XC06",,missing
+1128,FS106,,,missing
+1131,PRIMA-1MET,"Prima 1MET, APR-246",,missing
+1142,HG-5-113-01,,,missing
+1143,HG-5-88-01,,,missing
+1145,THZ-1-87,,,missing
+1155,QL-XII-47,,,missing
+1157,XMD11-50,,,missing
+1158,XMD11-85h,,,missing
+1165,THZ-2-98-01,,,missing
+1166,QL-VIII-58,,,missing
+1177,Niraparib,"MK-4827, MK4827",,missing
+1179,MK-1775,"AZD1775, Adavosertib",,missing
+1180,Dinaciclib,"SCH727965, SCH 727965, SCH-727-965, MK-7965",,missing
+1183,CRT0160829,,,missing
+1186,FS112,,,missing
+1187,CCT245232,,,missing
+1188,CCT245467,,,missing
+1195,FY026,"[(para-cymene)osmium(N,N-dimethylphenlyazopyridine)(iodide)]hexafluorophophate",,missing
+1196,FY069,[(biphenyl)osmium(5-fluoro-phenlyazopyridine)(iodide)]hexafluorophophate,,missing
+1197,ZL049,[(diphenyltetramethylcyclopentadienyl)iridium(III)(2-phenylpyridine)(chloride)],,missing
+1198,FY012,,,missing
+1202,torin2,,,missing
+1203,QL-XII-61,,,missing
+1204,HG-6-71-01,,,missing
+1232,I-BET-151,GSK12100151A,,missing
+1237,EPZ004777,EPZ-004777,,missing
+1250,AZ960,"AZ 960, AZ-960",,missing
+1251,N22899-6-C1,,,missing
+1252,N23918-95-7,,,missing
+1253,N24798-49-A1,,,missing
+1254,GSK-J4,,,missing
+1261,rTRAIL,,,missing
+1266,ICL1100013,,,missing
+1359,965-D2,,,missing
+1360,993-D2,,,missing
+1362,BAY ACCi,,,missing
+1363,BAY AKT1,,,missing
+1364,BAY-HDAC11_1,,,missing
+1365,BAY-HDAC11_2,,,missing
+1367,BAY-HDAC11_4,,,missing
+1368,BAY-MPS1,,,missing
+1369,BAY-MPS-combo-1 (paclitaxel 5 uM),,,missing
+1370,BAY-MPS-combo 2 (paclitaxel 1 uM),,,missing
+1378,Bleomycin (50 uM),,,missing
+1379,ZL109,,,missing
+1392,Bleomycin (10 uM),,,missing
+1407,Dyrk1b_0191,SN1008982787,,missing
+1413,EphB4_9721,SN1076287848,,missing
+1419,FEN1_3940,SN1106019609,,missing
+1421,FGFR_0939,SN1043317881,,missing
+1422,FGFR_3831,SN1037992934,,missing
+1426,AZD7969,SN1098976045,,missing
+1428,IAP_5620,SN1043546339,,missing
+1429,IAP_7638,SN1043547481,,missing
+1430,IGFR_3801,SN1056768819,,missing
+1433,JAK1_3715,SN1042605297,,missing
+1434,JAK3_7406,SN1014281280,,missing
+1436,MCT1_6447,SN0177231247,,missing
+1437,MCT4_1422,SN1043999849,,missing
+1446,PI3Ka_4409,SN1037097676,,missing
+1451,PLK_6522,SN1077317349,,missing
+1453,RAF_9304,SN1034259943,,missing
+1458,PARP_9495,SN1024601395,,missing
+1459,PARP_0108,SN1044053371,,missing
+1460,PARP_9482,SN1031920820,,missing
+1461,TANK_1366,SN1032446568,,missing
+1464,TTK_3146,SN1080714093,,missing
+1511,Epirubicin,"Ellence, Farmorubicin, IMI-28",,missing
+1512,Cyclophosphamide,"Cytoxan, Neosar, Cyclophosphamid, Procytox, Cyclophosphane",,missing
+1531,I-CBP112,,,missing
+1553,Uprosertib,"GSK2141795, GSK2141795C, GSK-2141795",,missing
+1560,Alpelisib,"BYL719, BYL-719, NVP-BYL719",,missing
+1561,Taselisib,"GDC-0032, GDC0032, RG7604",,missing
+1563,EPZ5676,"EPZ-5676, Pinometostat",,missing
+1564,SCH772984,CS-1421,,missing
+1576,IWP-2,Wnt Inhibitor IWP-2,,missing
+1578,Leflunomide,"Sulol, SU-101, HWA-486, Arava",,missing
+1580,GSK2801,"1-(7-(2-methylsulfonyl-phenyl)-4-propoxy-1-aza-bicyclo[4.3.0]nona-2,4,6,8-tetraen-9-yl)-ethanone",,missing
+1581,Bromosporine,"ethyl N-[6-(3-methanesulfonamido-4-methylphenyl)-3-methyl-[1,2,4]triazolo[4,3-b]pyridazin-8-yl]carbamate",,missing
+1582,SGC-CBP30,"8-(3-chloro-4-methoxy-phenethyl)-4-(3,5-dimethyl-isoxazol-4-yl)-9-(2-(morpholin-4-yl)-propyl)-7,9-diaza-bicyclo[4.3.0]nona-1(6),2,4,7-tetraene",,missing
+1583,GSK-LSD1,"N-((1R,2S)-2-phenylcyclopropyl)piperidin-4-amine",,missing
+1584,BDOCA000347a,"4-bromo-N-(6-methoxy-1,3-dimethyl-2-oxo-2,3-dihydro-1H-benzo[d]imidazol-5-yl)-2-methylbenzenesulfonamide",,missing
+1585,BDF00022089a,,,missing
+1586,BDILV000379a,"4-(4-(1-methyl-1H-pyrazol-4-yl)-1-(2-(1-methyl-1H-pyrazol-4-yl)ethyl)-4,5-dihydro-1H-imidazol-5-yl)benzonitrile",,missing
+1613,VE-822,"VE 822, VE822, Berzosertib",,missing
+1614,WZ4003,WZ 4003,,missing
+1615,CZC24832,GTPL6653,,missing
+1618,GSK2606414,AK175551,,missing
+1621,PCI-34051,AK298746,,missing
+1625,RVX-208,"1044870-39-4, Apabetalone",,missing
+1626,OTX015,"Birabresib, OTX-015, MK-8628",,missing
+1627,GSK343,"GTPL8240, AOB3680, AK175558",,missing
+1629,ML323,"GTPL7898, AOB2313,",,missing
+1630,Entospletinib,GS-9973,,missing
+1631,PRT062607,"P505-15, PRT-2607, BIIB-057",,missing
+1632,Ribociclib,"LEE011, NVP-LEE011, LEE011-BBA",,missing
+1635,Picolinici-acid,Picolinate,,missing
+1706,AZD5153,"SN1045566955, AZD5153",,missing
+1708,CDK9_5576,"SN1047226266, CDK9_5576",,missing
+1709,CDK9_5038,"SN1047483750, CDK9_5038",,missing
+1712,Eg5_9814,"SN1047613775, Eg5_9814",,missing
+1713,ERK_2440,"SN1051032892, ERK_2440",,missing
+1714,ERK_6604,"SN1047587618, ERK_6604",,missing
+1716,IRAK4_4710,"SN1050852374, IRAK4_4710",,missing
+1718,JAK1_8709,"SN1049200060, JAK1_8709",,missing
+1720,AZD5991,"SN1049446612, AZD5991",,missing
+1730,PAK_5339,"SN1046290829, PAK_5339",,missing
+1732,TAF1_5496,"SN1050393042, TAF1_5496",,missing
+1733,ULK1_4989,"SN1049257073, ULK1_4989",,missing
+1734,VSP34_8731,"SN1049998399, VSP34_8731",,missing
+1738,IGF1R_3801,"SN1051640224, IGF1R_3801",,missing
+1739,JAK_8517,"SN1066590414, JAK_8517",,missing
+1776,GSK2256098C,,,missing
+1777,GSK2276186C,,,missing
+1778,GSK2110183B,,,missing
+1779,GSK626616AC,,,missing
+1780,GSK3337463A,,,missing
+1782,GSK2830371A,,,missing
+1783,LMB_AB1,,,missing
+1784,LMB_AB2,,,missing
+1785,LMB_AB3,,,missing
+1799,Ibrutinib,"PCI-32765, CRA-032765, PCI-32765-00",,missing
+1802,Zoledronate,"Zoledronic acid, Zometa, Reclast",,missing
+1803,Acetalax,Oxyphenisatin acetate,,missing
+1804,Acetalax,Oxyphenisatin acetate,,missing
+1806,Oxaliplatin,,,missing
+1808,Topotecan,,,missing
+1809,Teniposide,Vumon,,missing
+1810,Mitoxantrone,,,missing
+1811,Dactinomycin,Actinomycin D,,missing
+1813,Fludarabine,Fludara,,missing
+1814,Nelarabine,"Atriance, Arranon",,missing
+1815,Dacarbazine,DTIC,,missing
+1817,Romidepsin,"Istodax, FK228, Depsipeptide",,missing
+1820,123829,,,missing
+1821,765771,,,missing
+1824,123138,,,missing
+1825,Podophyllotoxin bromide,,,missing
+1826,50869,,,missing
+1827,Dihydrorotenone,,,missing
+1828,720427,,,missing
+1829,667880,,,missing
+1830,Gallibiscoquinazole,,,missing
+1831,L-Oxonoreleagnine,,,missing
+1832,729189,,,missing
+1833,741909,,,missing
+1834,743380,,,missing
+1835,Elephantin,,,missing
+1836,150412,,,missing
+1838,Sinularin,,,missing
+1839,615590,,,missing
+1840,630600,,,missing
+1843,LMP744,MJ-III-65,,missing
+1844,776928,,,missing
+1845,Schweinfurthin A,,,missing
+1847,BEN,,,missing
+1849,Sabutoclax,BI-97C1,,missing
+1852,LY2109761,5XE,,missing
+1853,OF-1,,,missing
+1854,MN-64,,,missing
+1855,KRAS (G12C) Inhibitor-12,GTPL8020,,missing
+1866,BDP-00009066,,,missing
+1873,Buparlisib,"BKM120, NVP-BKM120",,missing
+1908,Ulixertinib,"BVD-523, VRT752271",,missing
+1909,Venetoclax,"ABT-199, Veneclexta, GDC-0199",,missing
+1910,ABT737,,,missing
+1911,Dactinomycin,"Actinomycin D, Cosmegen, Lyovac, Meractinomycin, Ac-De, ActD",,missing
+1912,Afuresertib,"GSK2110183, GSK2110183C",,missing
+1913,AGI-5198,IDH-C35,,missing
+1915,AZD3759,,,missing
+1916,AZD5363,,,missing
+1919,Osimertinib,"AZD9291, AZD 9291, AZD-9291, Tagrisso, Mereletinib",,missing
+1922,Cediranib,"AZD2171, AZD 2171, AZD-2171, Recentin",,missing
+1924,Ipatasertib,"GDC0068, GDC 0068, GDC-0068",,missing
+1925,GDC0810,"GDC-0810, GDC 0810",,missing
+1926,GNE-317,"GNE317, GNE 317",,missing
+1927,GSK2578215A,"GSK 2578215A,  GSK-2578215A",,missing
+1928,I-BRD9,"GSK602, GSK 602, GSK-602",,missing
+1930,Telomerase Inhibitor IX,"MST-312, MST 312, MST312",,missing
+1931,MIRA-1,"MIRA 1, MIRA1, NSC19630, NSC-19630, NSC 19630",,missing
+1932,NVP-ADW742,"NVP ADW742, NVPADW742",,missing
+1933,P22077,"P 22077, P-22077",,missing
+1939,UMI-77,"UMI 77, UMI-77",,missing
+1940,WIKI4,"WIKI-4, WIKI 4",,missing
+1997,WEHI-539,"WEHI539, WEHI-539",,missing
+1998,BPD-00008900,,,missing
+1999,N25720-51-A1,,,missing
+2000,N27922-53-1,,,missing
+2002,N30652-18-1,,,missing
+2003,N29087-69-1,,,missing
+2010,HKMTI-1-005,,,missing
+2011,ICL-SIRT078,,,missing
+2037,GSK343,,,missing
+2039,AGK2,,,missing
+2043,BIBR-1532,,,missing
+2044,Pyridostatin,,,missing
+2045,AMG-319,AMG319,,missing
+2046,MK-8776,SCH900776,,missing
+2047,Ulixertinib,"BVD-523, VRT752271",,missing
+2055,Mycophenolic acid,,,missing
+2057,Remodelin,,,missing
+2106,Uprosertib,"GSK2141795, GSK2141795C, GSK-2141795",,missing
+2107,LJI308,,,missing
+2109,AZ6102,,,missing
+2110,GSK591,"EPZ015866, GSK3203591",,missing
+2111,VE821,"VE 821, VE-821",,missing
+2112,VTP-A,,,missing
+2113,VTP-B,,,missing
+2145,PBD-288,,,missing
+2148,POMHEX,,,missing
+2149,CT7033-2,,,missing
+2154,GSK-LSD1-2HCl ,,,missing
+2156,5-azacytidine,,,missing
+2157,A-366,,,missing
+2158,CPI-637,,,missing
+2159,UNC0379,,,missing
+2170,AT13148,,,missing
+2359,GSK2830371,,,missing
+2360,THR-101,WIMM synthesis,,missing
+2361,THR-102,WIMM synthesis,,missing
+2362,THR-103,WIMM synthesis,,missing
+2438,ascorbate (vitamin C),back-up solution from YWKim,,missing
+2439,glutathione,"G6013, sigma",,missing
+2498,alpha-lipoic acid,aLA,,missing
+2499,N-acetyl cysteine,NAC,,missing

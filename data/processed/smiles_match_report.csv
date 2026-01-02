@@ -1,0 +1,622 @@
+drug,drug_name,synonyms,smiles,smiles_source
+1,Erlotinib,"Tarceva, RG-1415, CP-358774, OSI-774, Ro-508231, R-1415",C#Cc1cccc(Nc2ncnc3cc(OCCOC)c(OCCOC)cc23)c1,name
+3,Rapamycin,"AY-22989, Sirolimus, WY-090217, Torisel, Rapamune",COC1CC2CCC(C)C(O)(O2)C(=O)C(=O)N2CCCCC2C(=O)OC(C(C)CC2CCC(O)C(OC)C2)CC(=O)C(C)C=C(C)C(O)C(OC)C(=O)C(C)CC(C)C=CC=CC=C1C,name
+5,Sunitinib,"Sutent, Sunitinib Malate, SU-11248",CCN(CC)CCNC(=O)c1c(C)[nH]c(C=C2C(=O)Nc3ccc(F)cc32)c1C,name
+6,PHA-665752,"PHA665752, PHA 665752",Cc1[nH]c(C=C2C(=O)Nc3ccc(S(=O)(=O)Cc4c(Cl)cccc4Cl)cc32)c(C)c1C(=O)N1CCCC1CN1CCCC1,name
+9,MG-132,"LLL cpd, MG 132, MG132",CC(C)CC(C=O)NC(=O)C(CC(C)C)NC(=O)C(CC(C)C)NC(=O)OCc1ccccc1,name
+11,Paclitaxel,"BMS-181339-01, Taxol, Onxol, Paxene, Praxel, Abraxane",CC(=O)OC1C(=O)C2(C)C(O)CC3OCC3(OC(C)=O)C2C(OC(=O)c2ccccc2)C2(O)CC(OC(=O)C(O)C(NC(=O)c3ccccc3)c3ccccc3)C(C)=C1C2(C)C,name
+17,Cyclopamine,,CC1=C2CC3C(CC=C4CC(O)CCC43C)C2CCC12OC1CC(C)CNC1C2C,name
+29,AZ628,"AZ-628, AZ 628",Cc1ccc(NC(=O)c2cccc(C(C)(C)C#N)c2)cc1Nc1ccc2ncn(C)c(=O)c2c1,name
+30,Sorafenib,"Nexavar, 284461-73-0, BAY 43-9006",CNC(=O)c1cc(Oc2ccc(NC(=O)Nc3ccc(Cl)c(C(F)(F)F)c3)cc2)ccn1,name
+32,Tozasertib,"MK 0457,MK-0457,MK-045, VX-680 VX 680 VX-68",Cc1cc(Nc2cc(N3CCN(C)CC3)nc(Sc3ccc(NC(=O)C4CC4)cc3)n2)n[nH]1,name
+34,Imatinib,"Gleevec, STI-571",Cc1ccc(NC(=O)c2ccc(CN3CCN(C)CC3)cc2)cc1Nc1nccc(-c2cccnc2)n1,name
+35,NVP-TAE684,"NVP-TAE 684, TAE684, TAE-684",COc1cc(N2CCC(N3CCN(C)CC3)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2S(=O)(=O)C(C)C)n1,name
+37,Crizotinib,"Xalkori, PF2341066, PF-2341066, PF 2341066",CC(Oc1cc(-c2cnn(C3CCNCC3)c2)cnc1N)c1c(Cl)ccc(F)c1Cl,name
+38,Saracatinib,"AZD0530, AZD-0530, AZ-10353926",CN1CCN(CCOc2cc(OC3CCOCC3)c3c(Nc4c(Cl)ccc5c4OCO5)ncnc3c2)CC1,name
+41,S-Trityl-L-cysteine,"NSC 83265, Tritylcysteine",NC(CSC(c1ccccc1)(c1ccccc1)c1ccccc1)C(=O)O,name
+45,Z-LLNle-CHO,"Z-L-Norleucine-CHO, Gamma-Secretase Inhibitor 1",CCCCC(C=O)NC(=O)C(CC(C)C)NC(=O)C(CC(C)C)NC(=O)OCc1ccccc1,name
+51,Dasatinib,"BMS-354825-03, BMS-354825, Sprycel",Cc1nc(Nc2ncc(C(=O)Nc3c(C)cccc3Cl)s2)cc(N2CCN(CCO)CC2)n1,name
+52,GNF-2,KIN001-013,NC(=O)c1cccc(-c2cc(Nc3ccc(OC(F)(F)F)cc3)ncn2)c1,name
+53,CGP-60474,"KIN001-019, CGP60474, CGP 60474",OCCCNc1cc(-c2ccnc(Nc3cccc(Cl)c3)n2)ccn1,name
+54,CGP-082996,"CINK4, KIN001-021",CCNc1cc(NC2CCC(O)CC2)nc(Nc2ccc3c(ccn3Cc3ccccc3)c2)n1,name
+55,A-770041,KIN001-111,COc1cc(-c2nn(C3CCC(N4CCN(C(C)=O)CC4)CC3)c3ncnc(N)c23)ccc1NC(=O)c1cc2ccccc2n1C,name
+56,WH-4-023,KIN001-112,COc1ccc(N(C(=O)Oc2c(C)cccc2C)c2ccnc(Nc3ccc(N4CCN(C)CC4)cc3)n2)c(OC)c1,name
+59,WZ-1-84,KIN001-123,,missing
+60,BI-2536,,CCC1C(=O)N(C)c2cnc(Nc3ccc(C(=O)NC4CCN(C)CC4)cc3OC)nc2N1C1CCCC1,name
+62,BMS-536924,BMS 536924,Cc1cc(N2CCOCC2)cc2[nH]c(-c3c(NCC(O)c4cccc(Cl)c4)cc[nH]c3=O)nc12,name
+63,BMS-509744,"KIN001-127, ITK inhibitor",COc1cc(C)c(Sc2cnc(NC(=O)c3ccc(CNC(C)C(C)(C)C)cc3)s2)cc1C(=O)N1CCN(C(C)=O)CC1,name
+64,CMK,KIN001-128,Cc1ccc(-c2c(C(=O)CCl)n(CCCO)c3ncnc(N)c23)cc1,name
+71,Pyrimethamine,"Daraprim, Chloridine",CCc1nc(N)nc(N)c1-c1ccc(Cl)cc1,name
+83,JW-7-52-1,,,missing
+86,A-443654,KIN001-139,Cc1[nH]nc2ccc(-c3cncc(OCC(N)Cc4c[nH]c5ccccc45)c3)cc12,name
+87,GW843682X,GW843682X (AN-13),COc1cc2ncn(-c3cc(OCc4ccccc4C(F)(F)F)c(C(N)=O)s3)c2cc1OC,name
+88,Entinostat,MS-275,Nc1ccccc1NC(=O)c1ccc(CNC(=O)OCc2cccnc2)cc1,name
+89,Parthenolide,,C=C1C(=O)OC2C1CCC(C)=CCCC1(C)OC21,name
+91,GSK319347A,"KIN001-135, IKK-3 inhibitor",COc1cc2ncn(-c3cc(OCc4ccccc4S(C)(=O)=O)c(C#N)s3)c2cc1OC,name
+94,TGX221,"TGX-221, Tgx 221",Cc1cc(C(C)Nc2ccccc2)c2nc(N3CCOCC3)cc(=O)n2c1,name
+104,Bortezomib,"PS-341, LDP-341, Velcade",CC(C)CC(NC(=O)C(Cc1ccccc1)NC(=O)c1cnccn1)B(O)O,name
+106,XMD8-85,ERK5-IN-1,COc1cc(N2CCN(C)CC2)ccc1Nc1ncc2c(n1)N(C)c1ccccc1C(=O)N2C,name
+110,Seliciclib,"Roscovitine, CYC-202, AL-39256",CCC(CO)Nc1nc(NCc2ccccc2)c2ncn(C(C)C)c2n1,name
+111,Salubrinal,EIF-2alpha Inhibitor,O=C(C=Cc1ccccc1)NC(NC(=S)Nc1cccc2cccnc12)C(Cl)(Cl)Cl,name
+119,Lapatinib,"Tykerb, Tyverb",CS(=O)(=O)CCNCc1ccc(-c2ccc3ncnc(Nc4ccc(OCc5cccc(F)c5)c(Cl)c4)c3c2)o1,name
+127,GSK269962A,GSK 269962A,CCn1c(-c2nonc2N)nc2cnc(Oc3cccc(NC(=O)c4ccc(OCCN5CCOCC5)cc4)c3)cc21,name
+133,Doxorubicin,"Doxil, Rubex, Adriamycin, Adriablastin, Doxorubicine",COc1cccc2c1C(=O)c1c(O)c3c(c(O)c1C2=O)CC(O)(C(=O)CO)CC3OC1CC(N)C(O)C(C)O1,name
+134,Etoposide,"Etopophos, Vepesid, Eposin, VP-16",COc1cc(C2c3cc4c(cc3C(OC3OC5COC(C)OC5C(O)C3O)C3COC(=O)C23)OCO4)cc(OC)c1O,name
+135,Gemcitabine,"Gemzar, LY-188011",Nc1ccn(C2OC(CO)C(O)C2(F)F)c(=O)n1,name
+136,Mitomycin-C,"Mytozytrex, NSC-26980, MMC, Mitosol, Mitozytrex",COC12C(COC(N)=O)C3=C(C(=O)C(C)=C(N)C3=O)N1CC1NC12,name
+140,Vinorelbine,"vinorelbine tartrate, Navelbine, Exelbine",CCC1=CC2CN(C1)Cc1c([nH]c3ccccc13)C(C(=O)OC)(c1cc3c(cc1OC)N(C)C1C(O)(C(=O)OC)C(OC(C)=O)C4(CC)C=CCN5CCC31C54)C2,name
+147,NSC-87877,NSC 87877,O=S(=O)(O)c1ccc2cc(N=Nc3cc(S(=O)(=O)O)c4cccnc4c3O)ccc2c1,name
+150,Bicalutamide,"ICI-176334, Casodex, Cosudex, ICI 176334",CC(O)(CS(=O)(=O)c1ccc(F)cc1)C(=O)Nc1ccc(C#N)c(C(F)(F)F)c1,name
+151,QS11,944328-88-5,OCC(Cc1ccccc1)Nc1nc(Oc2ccc3c(c2)CCC3)nc2c1ncn2Cc1ccc(-c2ccccc2)cc1,name
+152,CP466722,"CP-466722, CP 466722, 1080622-86-1",COc1cc2ncnc(-n3nc(-c4ccccn4)nc3N)c2cc1OC,name
+153,Midostaurin,"PKC412, benzoylstaurosporine, CGP-41251",COC1C(N(C)C(=O)c2ccccc2)CC2OC1(C)n1c3ccccc3c3c4c(c5c6ccccc6n2c5c31)C(=O)NC4,name
+154,CHIR-99021,"CT 99021, CHIR99021, CHIR 99021",Cc1cnc(-c2cnc(NCCNc3ccc(C#N)cn3)nc2-c2ccc(Cl)cc2Cl)[nH]1,name
+155,Ponatinib,"AP24534, AP-24534, KIN001-192, Iclusig",Cc1ccc(C(=O)Nc2ccc(CN3CCN(C)CC3)c(C(F)(F)F)c2)cc1C#Cc1cnc2cccnn12,name
+156,AZD6482,"AZD 6482, AZD-6482, AK-55409",Cc1cc(C(C)Nc2ccccc2C(=O)O)c2nc(N3CCOCC3)cc(=O)n2c1,name
+157,JNK-9L,"KIN001-204, JNK inhibitor 9l",Nc1nccc(-c2cc(F)cc(N3CCOCC3)c2)n1,name
+158,PF-562271,PF-00562271,CN(c1ncccc1CNc1nc(Nc2ccc3c(c2)CC(=O)N3)ncc1C(F)(F)F)S(C)(=O)=O,name
+159,HG6-64-1,KIN001-206,CCN1CCN(Cc2ccc(NC(=O)c3ccc(C)c(C=Cc4cnc5[nH]ccc5c4OC)c3)cc2C(F)(F)F)CC1,name
+163,JQ1,"JQ-1, (+)-JQ-1",Cc1sc2c(c1C)C(c1ccc(Cl)cc1)=NC(CC(=O)OC(C)(C)C)c1nnc(C)n1-2,name
+164,JQ12,,,missing
+165,DMOG,Dimethyloxalylglcine,COC(=O)CNC(=O)C(=O)OC,name
+166,FTI-277,,COC(=O)C(CCSC)NC(=O)c1ccc(NCC(N)CS)cc1-c1ccccc1,name
+167,OSU-03012,"AR-12, OSU 03012, OSU03012, PDK1 inhibitor AR-12",NCC(=O)Nc1ccc(-n2nc(C(F)(F)F)cc2-c2ccc3c(ccc4ccccc43)c2)cc1,name
+170,Shikonin,Anchusin,CC(C)=CCC(O)C1=CC(=O)c2c(O)ccc(O)c2C1=O,name
+171,AKT inhibitor VIII,"Akti-1/2, KIN001-102",O=c1[nH]c2ccccc2n1C1CCN(Cc2ccc(-c3[nH]c4cc5ncnc5cc4nc3-c3ccccc3)cc2)CC1,name
+172,Embelin,"Emberine, Embelic acid",CCCCCCCCCCCC1=C(O)C(=O)C=C(O)C1=O,name
+173,FH535,,Cc1cc([N+](=O)[O-])ccc1NS(=O)(=O)c1cc(Cl)ccc1Cl,name
+175,PAC-1,GTPL5238,C=CCc1cccc(C=NNC(=O)CN2CCN(Cc3ccccc3)CC2)c1O,name
+176,IPA-3,IPA 3,Oc1ccc2ccccc2c1SSc1c(O)ccc2ccccc12,name
+177,GSK650394,"GSK-650394, GSK 650394",O=C(O)c1ccc(-c2c[nH]c3ncc(-c4ccccc4)cc23)cc1C1CCCC1,name
+178,BAY-61-3606,"Syk Inhibitor, BAY-613606",COc1ccc(-c2cc3nccn3c(Nc3ncccc3C(N)=O)n2)cc1OC.Cl.Cl,name
+179,5-Fluorouracil,5-FU,O=c1[nH]cc(F)c(=O)[nH]1,name
+180,Thapsigargin,Octanoic acid,CC=C(C)C(=O)OC1C(C)=C2C(C1OC(=O)CCCCCCC)C(C)(OC(C)=O)CC(OC(=O)CCC)C1(O)C2OC(=O)C1(C)O,name
+182,Obatoclax Mesylate,"GX15-070MS, Obatoclax, GX15-070",COc1cc(=C2C=c3ccccc3=N2)[nH]c1=Cc1[nH]c(C)cc1C.CS(=O)(=O)O,name
+184,BMS-754807,"BMS754807, BMS 754807",CC1(C(=O)Nc2ccc(F)nc2)CCCN1c1nc(Nc2cc(C3CC3)[nH]n2)c2cccn2n1,name
+185,Linsitinib,"OSI-906, ASP-7487",CC1(O)CC(c2nc(-c3ccc4ccc(-c5ccccc5)nc4c3)c3c(N)nccn23)C1,name
+186,Bexarotene,"LG-100069, Targretin, Targret, Targrexin, Targretyn, Bexarotenum",C=C(c1ccc(C(=O)O)cc1)c1cc2c(cc1C)C(C)(C)CCC2(C)C,name
+190,Bleomycin,,Cc1c(N)nc(C(CC(N)=O)NCC(N)C(N)=O)nc1C(=O)NC(C(=O)NC(C)C(O)C(C)C(=O)NC(C(=O)NCCc1nc(-c2nc(C(=O)NCCC[S+](C)C)cs2)cs1)C(C)O)C(OC1OC(CO)C(O)C(O)C1OC1OC(CO)C(O)C(OC(N)=O)C1O)c1cnc[nH]1,name
+192,LFM-A13,DDE-28,CC(O)=C(C#N)C(=O)Nc1cc(Br)ccc1Br,name
+193,GW-2580,"GX2580, CFMS receptor tyrosine kinase inhibitor",COc1ccc(COc2ccc(Cc3cnc(N)nc3N)cc2OC)cc1,name
+194,Luminespib,"AUY922, VER-52296,NVP-AUY922,  AUY",CCNC(=O)c1noc(-c2cc(C(C)C)c(O)cc2O)c1-c1ccc(CN2CCOCC2)cc1,name
+196,Phenformin,DBI,NC(N)=NC(N)=NCCc1ccccc1,name
+197,Bryostatin 1,Bryostatin,CCCC=CC=CC(=O)OC1C(=CC(=O)OC)CC2CC(C(C)O)OC(=O)CC(O)CC3CC(OC(C)=O)C(C)(C)C(O)(CC4CC(=CC(=O)OC)CC(C=CC(C)(C)C1(O)O2)O4)O3,name
+199,Pazopanib,Votrient,Cc1ccc(Nc2nccc(N(C)c3ccc4c(C)n(C)nc4c3)n2)cc1S(N)(=O)=O,name
+200,Dacinostat,"NVP-LAQ824, LAQ824",O=C(C=Cc1ccc(CN(CCO)CCc2c[nH]c3ccccc23)cc1)NO,name
+201,Epothilone B,"Patupilone, EpoB, EPO906, GNF-PF-193",CC(=Cc1csc(C)n1)C1CC2OC2(C)CCCC(C)C(O)C(C)C(=O)C(C)(C)C(O)CC(=O)O1,name
+202,GSK1904529A,"GSK-1904529A, GSK 1904529A",CCc1cc(Nc2nccc(-c3c(-c4ccc(OC)c(C(=O)Nc5c(F)cccc5F)c4)nc4ccccn34)n2)c(OC)cc1N1CCC(N2CCN(S(C)(=O)=O)CC2)CC1,name
+203,BMS-345541,"BMS345541, IKK Inhibitor 3",Cc1ccc2nc(NCCN)c3ncc(C)n3c2c1.Cl,name
+204,Tipifarnib,Zarnestra,Cn1cncc1C(N)(c1ccc(Cl)cc1)c1ccc2c(c1)c(-c1cccc(Cl)c1)cc(=O)n2C,name
+205,Avagacestat,"BMS-708163, BMS 708163",NC(=O)C(CCC(F)(F)F)N(Cc1ccc(-c2ncon2)cc1F)S(=O)(=O)c1ccc(Cl)cc1,name
+206,Ruxolitinib,"INCB-18424, Ruxolitinib Phosphate, Jakafi",N#CCC(C1CCCC1)n1cc(-c2ncnc3[nH]ccc23)cn1,name
+207,AS601245,,N#CC(c1ccnc(NCCc2cccnc2)n1)c1nc2ccccc2s1,name
+208,Ispinesib Mesylate,SB-715992,CS(=O)(=O)O.Cc1ccc(C(=O)N(CCCN)C(c2nc3cc(Cl)ccc3c(=O)n2Cc2ccccc2)C(C)C)cc1,name
+211,TL-2-105,,,missing
+219,AT-7519,AT7519,O=C(NC1CCNCC1)c1[nH]ncc1NC(=O)c1c(Cl)cccc1Cl,name
+221,TAK-715,"KIN001-201, TAK 715",CCc1nc(-c2cccc(C)c2)c(-c2ccnc(NC(=O)c3ccccc3)c2)s1,name
+222,BX-912,,O=C(Nc1cccc(Nc2ncc(Br)c(NCCc3cnc[nH]3)n2)c1)N1CCCC1,name
+223,ZSTK474,"KIN001-167, ZSTK-474, ZSTK 474",FC(F)c1nc2ccccc2n1-c1nc(N2CCOCC2)nc(N2CCOCC2)n1,name
+224,AS605240,"KIN001-173, AS-605240",O=C1NC(=O)C(=Cc2ccc3nccnc3c2)S1,name
+225,Genentech Cpd 10,,,missing
+226,GSK1070916,GSK-1070916,CCn1cc(-c2ccnc3[nH]c(-c4cccc(CN(C)C)c4)cc23)c(-c2ccc(NC(=O)N(C)C)cc2)n1,name
+228,AKT inhibitor VIII,"Akti-1/2, KIN001-102",O=c1[nH]c2ccccc2n1C1CCN(Cc2ccc(-c3[nH]c4cc5ncnc5cc4nc3-c3ccccc3)cc2)CC1,name
+229,Enzastaurin,LY317615,Cn1cc(C2=C(c3cn(C4CCN(Cc5ccccn5)CC4)c4ccccc34)C(=O)NC2=O)c2ccccc21,name
+230,GSK429286A,,CC1=C(C(=O)Nc2cc3cn[nH]c3cc2F)C(c2ccc(C(F)(F)F)cc2)CC(=O)N1,name
+231,FMK,KIN001-242,Cc1ccc(-c2c(C(=O)CF)n(CCCO)c3ncnc(N)c23)cc1,name
+235,QL-XII-47,,,missing
+236,IC-87114,,Cc1ccccc1-n1c(Cn2cnc3c(N)ncnc32)nc2cccc(C)c2c1=O,name
+238,Idelalisib,"CAL-101, Zydelig",CCC(Nc1ncnc2nc[nH]c12)c1nc2cccc(F)c2c(=O)n1-c1ccccc1,name
+245,UNC0638,"UNC-0638, UNC 0683",COc1cc2c(NC3CCN(C(C)C)CC3)nc(C3CCCCC3)nc2cc1OCCCN1CCCC1,name
+249,Cabozantinib,"BMS-907351, XL-184, Cometriq",COc1cc2nccc(Oc3ccc(NC(=O)C4(C(=O)Nc5ccc(F)cc5)CC4)cc3)c2cc1OC,name
+252,WZ3105,,,missing
+253,XMD14-99,,,missing
+254,Quizartinib,"AC220, AC 220, AC-220, Asp-2689",CC(C)(C)c1cc(NC(=O)Nc2ccc(-c3cn4c(n3)sc3cc(OCCN5CCOCC5)ccc34)cc2)no1,name
+255,CP724714,CP-724714,COCC(=O)NCC=Cc1ccc2ncnc(Nc3ccc(Oc4ccc(C)nc4)c(C)c3)c2c1,name
+256,JW-7-24-1,,,missing
+257,NPK76-II-72-1,,,missing
+258,STF-62247,STF62247,Cc1cccc(Nc2nc(-c3ccncc3)cs2)c1,name
+260,NG-25,NG25,CCN1CCN(Cc2ccc(NC(=O)c3ccc(C)c(Oc4ccnc5[nH]ccc45)c3)cc2C(F)(F)F)CC1,name
+261,TL-1-85,,,missing
+262,VX-11e,"VX11e, VX11e",Cc1cnc(Nc2ccc(F)cc2Cl)nc1-c1c[nH]c(C(=O)NC(CO)c2cccc(Cl)c2)c1,name
+263,FR-180204,"FR 180204, FR180204, ERK Inhibitor II",Nc1[nH]nc2nnc(-c3c(-c4ccccc4)nn4ccccc34)cc12,name
+264,ACY-1215,,O=C(CCCCCCNC(=O)c1cnc(N(c2ccccc2)c2ccccc2)nc1)NO,name
+265,Tubastatin A,,CN1CCc2c(c3ccccc3n2Cc2ccc(C(=O)NO)cc2)C1,name
+266,Zibotentan,"ZD4054, ZD-4054",COc1nc(C)cnc1NS(=O)(=O)c1cccnc1-c1ccc(-c2nnco2)cc1,name
+268,Sepantronium bromide,"YM155, YM-155, YM 155",COCCn1c2c([n+](Cc3cnccn3)c1C)C(=O)c1ccccc1C2=O.[Br-],name
+269,NSC-207895,"XI-006, NSC207895",CN1CCN(c2ccc([N+](=O)[O-])c3no[n+]([O-])c23)CC1,name
+271,VNLG/124,HDAC inhibitor XV,,missing
+272,AR-42,"HDAC-42, AR 42, AR42",CC(C)C(C(=O)Nc1ccc(C(=O)NO)cc1)c1ccccc1,name
+273,CUDC-101,CUDC 101,C#Cc1cccc(Nc2ncnc3cc(OC)c(OCCCCCCC(=O)NO)cc23)c1,name
+274,Belinostat,"PXD101, PXD-101",O=C(C=Cc1cccc(S(=O)(=O)Nc2ccccc2)c1)NO,name
+275,I-BET-762,GSK525762A,CCNC(=O)CC1N=C(c2ccc(Cl)cc2)c2cc(OC)ccc2-n2c(C)nnc21,name
+276,CAY10603,,CC(C)(C)OC(=O)Nc1ccc(-c2cc(C(=O)NCCCCCCC(=O)NO)no2)cc1,name
+277,Linifanib,"ABT-869, ABT 869",Cc1ccc(F)c(NC(=O)Nc2ccc(-c3cccc4[nH]nc(N)c34)cc2)c1,name
+279,BIX02189,BIX 02189,CN(C)Cc1cccc(N=C(c2ccccc2)c2c(O)[nH]c3cc(C(=O)N(C)C)ccc23)c1,name
+281,Alectinib,"CH5424802, CH 542802, Alecensa",CCc1cc2c(cc1N1CCC(N3CCOCC3)CC1)C(C)(C)c1[nH]c3cc(C#N)ccc3c1C2=O,name
+282,Pelitinib,"EKB-569, EKB 569",CCOc1cc2ncc(C#N)c(Nc3ccc(F)c(Cl)c3)c2cc1NC(=O)C=CCN(C)C,name
+283,Omipalisib,"GSK2126458, GSK-2126458, EX-8678, GSK458",COc1ncc(-c2ccc3nccc(-c4ccnnc4)c3c2)cc1NS(=O)(=O)c1ccc(F)cc1F,name
+284,JNJ38877605,,Cn1cc(-c2ccc3nnc(C(F)(F)c4ccc5ncccc5c4)n3n2)cn1,name
+285,SU11274,,Cc1[nH]c(C=C2C(=O)Nc3ccc(S(=O)(=O)N(C)c4cccc(Cl)c4)cc32)c(C)c1C(=O)N1CCN(C)CC1,name
+286,KIN001-236,,,missing
+287,KIN001-244,PDK1 inhibitor 7,,missing
+288,WHI-P97,"AC1L1GQE, KIN001-055",COc1cc2ncnc(Nc3cc(Br)c(O)c(Br)c3)c2cc1OC,name
+289,KIN001-042,,,missing
+290,KIN001-260,"Bayer IKKb inhibitor, ACHP",,missing
+291,KIN001-266,,,missing
+292,Masitinib,"AB1010, Masivet",Cc1ccc(NC(=O)c2ccc(CN3CCN(C)CC3)cc2)cc1Nc1nc(-c2cccnc2)cs1,name
+293,Amuvatinib,"MP470, MP 470, MP-470",S=C(NCc1ccc2c(c1)OCO2)N1CCN(c2ncnc3c2oc2ccccc23)CC1,name
+294,MPS-1-IN-1,,,missing
+295,NVP-BHG712,BHG712,Cc1ccc(C(=O)Nc2cccc(C(F)(F)F)c2)cc1Nc1nc(-c2cccnc2)nc2c1cnn2C,name
+298,OSI-930,OSI 930 OSI930,O=C(Nc1ccc(OC(F)(F)F)cc1)c1sccc1NCc1ccnc2ccccc12,name
+299,OSI-027,A-1065-5,COc1cccc2cc(-c3nc(C4CCC(C(=O)O)CC4)n4ncnc(N)c34)[nH]c12,name
+300,CX-5461,"CX5461, CX 5461",Cc1cnc(CNC(=O)c2c(=O)c3ccc(N4CCCN(C)CC4)nc3n3c2sc2ccccc23)cn1,name
+301,PHA-793887,"PHA793887, PHA 793887",CC(C)CC(=O)Nc1n[nH]c2c1CN(C(=O)C1CCN(C)CC1)C2(C)C,name
+302,PI-103,"PI-103, PI103, PI 103",Oc1cccc(-c2nc(N3CCOCC3)c3oc4ncccc4c3n2)c1,name
+303,PIK-93,"PIK 93, PIK93",CC(=O)Nc1nc(C)c(-c2ccc(Cl)c(S(=O)(=O)NCCO)c2)s1,name
+304,SB52334,"SB-52334, SB 52334",O=C(O)c1cccnc1-c1ccccc1,name
+305,TPCA-1,,NC(=O)Nc1sc(-c2ccc(F)cc2)cc1C(N)=O,name
+306,Fedratinib,"TG101348, TG-101348, SAR302503, SAR-302503",Cc1cnc(Nc2ccc(OCCN3CCCC3)cc2)nc1Nc1cccc(S(=O)(=O)NC(C)(C)C)c1,name
+308,Foretinib,"GSK1363089, XL-880, EXEL-2880, GSK089",COc1cc2c(Oc3ccc(NC(=O)C4(C(=O)Nc5ccc(F)cc5)CC4)cc3F)ccnc2cc1OCCCN1CCOCC1,name
+309,Y-39983,,CC(N)c1ccc(C(=O)Nc2ccnc3[nH]ccc23)cc1,name
+310,YM201636,"YM-201636, YM 201636",Nc1ccc(C(=O)Nc2cccc(-c3nc(N4CCOCC4)c4oc5ncccc5c4n3)c2)cn1,name
+312,Tivozanib,"AV-951, AV 951, KRN-951, KIL8951, ASP-4130",COc1cc2nccc(Oc3ccc(NC(=O)Nc4cc(C)on4)c(Cl)c3)c2cc1OC,name
+317,WYE-125132,,CNC(=O)Nc1ccc(-c2nc(N3CC4CCC(C3)O4)c3cnn(C4CCC5(CC4)OCCO5)c3n2)cc1,name
+326,GSK690693,"GSK 690693, GSK-690693",CCn1c(-c2nonc2N)nc2c(C#CC(C)(C)O)ncc(OCC3CCCNC3)c21,name
+328,SNX-2112,SNX 2112,CC1(C)CC(=O)c2c(C(F)(F)F)nn(-c3ccc(C(N)=O)c(NC4CCC(O)CC4)c3)c2C1,name
+329,QL-XI-92,,,missing
+330,XMD13-2,,,missing
+331,QL-X-138,,C=CC(=O)Nc1cc(-n2c(=O)ccc3cnc4ccc(-c5cn[nH]c5)cc4c32)ccc1C,name
+332,XMD15-27,,,missing
+333,T0901317,"TO-901317, TO901317",O=S(=O)(c1ccccc1)N(CC(F)(F)F)c1ccc(C(O)(C(F)(F)F)C(F)(F)F)cc1,name
+341,Selisistat,"EX-527, EX 527",NC(=O)C1CCCc2c1[nH]c1ccc(Cl)cc21,name
+342,Tenovin-6,,CN(C)CCCCC(=O)Nc1ccc(NC(=S)NC(=O)c2ccc(C(C)(C)C)cc2)cc1,name
+344,THZ-2-49,,,missing
+345,KIN001-270,"CDK9 inhibitor, CDK9-IN-1",,missing
+346,THZ-2-102-1,,,missing
+356,AT7867,,Clc1ccc(C2(c3ccc(-c4cn[nH]c4)cc3)CCNCC2)cc1,name
+362,CI-1033,,C=CC(=O)Nc1cc2c(Nc3ccc(F)c(Cl)c3)ncnc2cc1OCCCN1CCOCC1,name
+363,PF-00299804,,COc1cc2ncnc(Nc3ccc(F)c(Cl)c3)c2cc1NC(=O)C=CCN1CCCCC1,name
+366,TWS119,,Nc1cccc(-c2cc3c(Oc4cccc(O)c4)ncnc3[nH]2)c1,name
+371,Torin 2,,Nc1ccc(-c2ccc3ncc4ccc(=O)n(-c5cccc(C(F)(F)F)c5)c4c3c2)cn1,name
+372,Pilaralisib,XL-147,COc1ccc(Cl)c(Nc2nc3ccccc3nc2NS(=O)(=O)c2cccc(NC(=O)C(C)(C)N)c2)c1,name
+374,GSK1059615,,O=C1NC(=O)C(=Cc2ccc3nccc(-c4ccncc4)c3c2)S1,name
+375,Voxtalisib,"XL-765, SAR245409",CCn1c(=O)c(-c2ccn[nH]2)cc2c(C)nc(N)nc21,name
+376,"Brivanib, BMS-540215",,,missing
+380,BIBF-1120,,COC(=O)c1ccc2c(C(=Nc3ccc(N(C)C(=O)CN4CCN(C)CC4)cc3)c3ccccc3)c(O)[nH]c2c1,name
+381,AST-1306,,C=CC(=O)Nc1ccc2ncnc(Nc3ccc(OCc4cccc(F)c4)c(Cl)c3)c2c1,name
+382,Apitolisib,GDC0980,Cc1c(CN2CCN(C(=O)C(C)O)CC2)sc2c(N3CCOCC3)nc(-c3cnc(N)nc3)nc12,name
+406,LIMK1 inhibitor BMS4,,,missing
+407,kb NB 142-70,,O=C1NCCSc2c1sc1ccc(O)cc21,name
+408,Sphingosine Kinase 1 Inhibitor II,PF-543,Cc1cc(CS(=O)(=O)c2ccccc2)cc(OCc2ccc(CN3CCCC3CO)cc2)c1,name
+409,"eEF2K Inhibitor, A-484954",,,missing
+410,"MetAP2 Inhibitor, A832234",,,missing
+412,Venotoclax,"ABT-199, Veneclexta, GDC-0199",,missing
+415,CPI-613,,O=C(O)CCCCC(CCSCc1ccccc1)SCc1ccccc1,name
+416,CAY10566,,Cc1nnc(-c2ccc(N3CCC(Oc4cc(F)ccc4Cl)CC3)nn2)o1,name
+427,Ara-G,9-??-D-Arabinofuranosyl guanine,Nc1nc2c(ncn2C2OC(CO)C(O)C2O)c(=O)[nH]1,name
+428,Pemetrexed,,Nc1nc2[nH]cc(CCc3ccc(C(=O)NC(CCC(=O)O)C(=O)O)cc3)c2c(=O)[nH]1,name
+431,Alisertib,MLN8237,COc1cc(Nc2ncc3c(n2)-c2ccc(Cl)cc2C(c2c(F)cccc2OC)=NC3)ccc1C(=O)O,name
+432,Flavopiridol,,CN1CCC(c2c(O)cc(O)c3c(=O)cc(-c4ccccc4Cl)oc23)C(O)C1,name
+435,C-75,,C=C1C(=O)OC(CCCCCCCC)C1C(=O)O,name
+436,"CAP-232, TT-232, TLN-232",,,missing
+437,Trichostatin A,,CC(C=CC(=O)NO)=CC(C)C(=O)c1ccc(N(C)C)cc1,name
+438,Panobinostat,"Farydak, LBH589",Cc1[nH]c2ccccc2c1CCNCc1ccc(C=CC(=O)NO)cc1,name
+439,LCL161,,CNC(C)C(=O)NC(C(=O)N1CCCC1c1nc(C(=O)c2ccc(F)cc2)cs1)C1CCCCC1,name
+442,IMD-0354,,O=C(Nc1cc(C(F)(F)F)cc(C(F)(F)F)c1)c1cc(Cl)ccc1O,name
+446,MIM1,,Cc1csc(=NC2CCCCC2)n1N=Cc1ccc(O)c(O)c1O,name
+447,ETP-45835,,Cl.Cl.c1cc(-c2cc(C3CCNCC3)[nH]n2)ccn1,name
+449,CD532,,O=C(Nc1ccc(Nc2nccc(Nc3cc(C4CCCC4)[nH]n3)n2)cc1)Nc1cccc(C(F)(F)F)c1,name
+461,NSC319726,,CC(=NNC(=S)N1CCC1)c1ccccn1,name
+474,ARRY-520,,CON(C)C(=O)N1N=C(c2cc(F)ccc2F)SC1(CCCN)c1ccccc1,name
+476,SB505124,"SB 505124, SB505124",Cc1cccc(-c2[nH]c(C(C)(C)C)nc2-c2ccc3c(c2)OCO3)n1,name
+477,A-83-01,,Cc1cccc(-c2nn(C(=S)Nc3ccccc3)cc2-c2ccnc3ccccc23)n1,name
+478,LDN-193189,,c1ccc2c(-c3cnn4cc(-c5ccc(N6CCNCC6)cc5)cnc34)ccnc2c1,name
+546,FTY-720,Fingolimod hydrochloride; Gilenya; TDI-132; Imusera; Gilenia,CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1.Cl,name
+552,BAM7,,CCOc1ccccc1N=Nc1c(C)[nH]n(-c2nc(-c3ccccc3)cs2)c1=O,name
+562,AGI-6780,,O=C(Nc1cccc(C(F)(F)F)c1)Nc1cc(S(=O)(=O)NC2CC2)ccc1-c1ccsc1,name
+563,Kobe2602,,O=[N+]([O-])c1cc(C(F)(F)F)cc([N+](=O)[O-])c1NNC(=S)Nc1ccc(F)cc1,name
+573,LGK974,,Cc1cc(-c2ncc(CC(=O)Nc3ccc(-c4cnccn4)cn3)cc2C)ccn1,name
+574,Wnt-C59,,Cc1cc(-c2ccc(CC(=O)Nc3ccc(-c4cccnc4)cc3)cc2)ccn1,name
+576,RU-SKI 43,,CCC(C)CNCC(=O)N1CCc2sccc2C1COc1cccc(C)c1,name
+1001,AICA Ribonucleotide,"AICAR, N1-(b-D-Ribofuranosyl)-5-aminoimidazole-4-carboxamide",NC(=O)c1ncn(C2OC(COP(=O)(O)O)C(O)C2O)c1N,name
+1003,Camptothecin,"Camptothecine, (+)-Camptothecin",,missing
+1004,Vinblastine,Velban,CCC1(O)CC2CN(CCc3c([nH]c4ccccc34)C(C(=O)OC)(c3cc4c(cc3OC)N(C)C3C(O)(C(=O)OC)C(OC(C)=O)C5(CC)C=CCN6CCC43C65)C2)C1,name
+1005,Cisplatin,"cis-Diammineplatinum(II) dichloride, Platinol, CIS-DDP",Cl[Pt]Cl.N.N,name
+1006,Cytarabine,"Ara-Cytidine, Arabinosyl Cytosine, U-19920",Nc1ccn(C2OC(CO)C(O)C2O)c(=O)n1,name
+1007,Docetaxel,"RP-56976, Taxotere",CC(=O)OC12COC1CC(O)C1(C)C(=O)C(O)C3=C(C)C(OC(=O)C(O)C(NC(=O)OC(C)(C)C)c4ccccc4)CC(O)(C(OC(=O)c4ccccc4)C21)C3(C)C,name
+1008,Methotrexate,"Abitrexate, Amethopterin, Rheumatrex, Trexall, Folex",CN(Cc1cnc2nc(N)nc(N)c2n1)c1ccc(C(=O)NC(CCC(=O)O)C(=O)O)cc1,name
+1009,Tretinoin,"ATRA, Vesanoid, Renova, Atralin, Tretin-X, Avita",CC(C=CC1=C(C)CCCC1(C)C)=CC=CC(C)=CC(=O)O,name
+1010,Gefitinib,"ZD-1839, Iressa",COc1cc2ncnc(Nc3ccc(F)c(Cl)c3)c2cc1OCCCN1CCOCC1,name
+1011,Navitoclax,"ABT-263, ABT263, ABT 263",CC1(C)CCC(c2ccc(Cl)cc2)=C(CN2CCN(c3ccc(C(=O)NS(=O)(=O)c4ccc(NC(CCN5CCOCC5)CSc5ccccc5)c(S(=O)(=O)C(F)(F)F)c4)cc3)CC2)C1,name
+1012,Vorinostat,"Zolinza, SAHA, suberanilohydroxamic acid, suberoylanilide hydroxamic acid, MK-0683",O=C(CCCCCCC(=O)Nc1ccccc1)NO,name
+1013,Nilotinib,"Tasigna, AMN 107",Cc1cn(-c2cc(NC(=O)c3ccc(C)c(Nc4nccc(-c5cccnc5)n4)c3)cc(C(F)(F)F)c2)cn1,name
+1014,Refametinib,"RDEA119, BAY-86-9766, BAY 869766",COc1cc(F)c(F)c(Nc2ccc(I)cc2F)c1NS(=O)(=O)C1(CC(O)CO)CC1,name
+1015,CI-1040,"CI 1040, PD-18435, PD-184352, 212631-79-3",O=C(NOCC1CC1)c1ccc(F)c(F)c1Nc1ccc(I)cc1Cl,name
+1016,Temsirolimus,"CCI-779, Torisel",COC1CC2CCC(C)C(O)(O2)C(=O)C(=O)N2CCCCC2C(=O)OC(C(C)CC2CCC(OC(=O)C(C)(CO)CO)C(OC)C2)CC(=O)C(C)C=C(C)C(O)C(OC)C(=O)C(C)CC(C)C=CC=CC=C1C,name
+1017,Olaparib,"AZD2281, KU0059436,  Lynparza",O=C(c1cc(Cc2n[nH]c(=O)c3ccccc23)ccc1F)N1CCN(C(=O)C2CC2)CC1,name
+1018,Veliparib,"ABT-888, ABT888, ABT 888",CC1(c2nc3c(C(N)=O)cccc3[nH]2)CCCN1,name
+1019,Bosutinib,"SKI-606, Bosulif",COc1cc(Nc2c(C#N)cnc3cc(OCCCN4CCN(C)CC4)c(OC)cc23)c(Cl)cc1Cl,name
+1020,Lenalidomide,"CDC-501, CC-5013, Revlimid",Nc1cccc2c1CN(C1CCC(=O)NC1=O)C2=O,name
+1021,Axitinib,"AG-13736, Inlyta",CNC(=O)c1ccccc1Sc1ccc2c(C=Cc3ccccn3)n[nH]c2c1,name
+1022,AZD7762,"AZD-7762, AZD 7762",NC(=O)Nc1cc(-c2cccc(F)c2)sc1C(=O)NC1CCCNC1,name
+1023,GW441756,GW 441756,Cn1cc(C=C2C(=O)Nc3cccnc32)c2ccccc21,name
+1024,Lestaurtinib,"CEP-701, SP-924, SPM-924, A-154475, KT-555",CC12OC(CC1(O)CO)n1c3ccccc3c3c4c(c5c6ccccc6n2c5c31)CNC4=O,name
+1025,SB216763,"SB-216763, SB 216763",Cn1cc(C2=C(c3ccc(Cl)cc3Cl)C(=O)NC2=O)c2ccccc21,name
+1026,Tanespimycin,"17-AAG, BMS-722782",C=CCNC1=C2CC(C)CC(OC)C(O)C(C)C=C(C)C(OC(N)=O)C(OC)C=CC=C(C)C(=O)NC(=CC1=O)C2=O,name
+1028,VX-702,"VX702, VX 702",NC(=O)c1ccc(N(C(N)=O)c2c(F)cccc2F)nc1-c1ccc(F)cc1F,name
+1029,Motesanib,"AMG-706, AMG 706, AMG706",CC1(C)CNc2cc(NC(=O)c3cccnc3NCc3ccncc3)ccc21,name
+1030,KU-55933,KU55933,O=c1cc(-c2cccc3c2Sc2ccccc2S3)oc(N2CCOCC2)c1,name
+1031,Elesclomol,STA-4783,CN(NC(=O)CC(=O)NN(C)C(=S)c1ccccc1)C(=S)c1ccccc1,name
+1032,Afatinib,"BIBW2992, Tovok, Gilotrif",CN(C)CC=CC(=O)Nc1cc2c(Nc3ccc(F)c(Cl)c3)ncnc2cc1OC1CCOC1,name
+1033,Vismodegib,"GDC0449, Erivedge",CS(=O)(=O)c1ccc(C(=O)Nc2ccc(Cl)c(-c3ccccn3)c2)c(Cl)c1,name
+1034,Staurosporine,,,missing
+1036,PLX-4720,"PLX4720, PLX 4720",CCCS(=O)(=O)Nc1ccc(F)c(C(=O)c2c[nH]c3ncc(Cl)cc23)c1F,name
+1037,BX795,BX-795,O=C(NCCCNc1nc(Nc2cccc(NC(=O)N3CCCC3)c2)ncc1I)c1cccs1,name
+1038,NU7441,"KU-57788, NU-7432, NU-7741",O=c1cc(N2CCOCC2)oc2c(-c3cccc4c3sc3ccccc34)cccc12,name
+1039,SL0101,"SL-0101, SL 0101-1",CC(=O)OC1C(C)OC(Oc2c(-c3ccc(O)cc3)oc3cc(O)cc(O)c3c2=O)C(O)C1OC(C)=O,name
+1042,Doramapimod,"BIRB-796, BIRB 796",Cc1ccc(-n2nc(C(C)(C)C)cc2NC(=O)Nc2ccc(OCCN3CCOCC3)c3ccccc23)cc1,name
+1043,JNK Inhibitor VIII,,CCOc1nc(NC(=O)Cc2cc(OC)ccc2OC)cc(N)c1C#N,name
+1046,Wee1 Inhibitor,"681640, Wee1 Inhibitor",O=C1NC(=O)c2c1c(-c1ccccc1Cl)cc1[nH]c3ccc(O)cc3c21,name
+1047,Nutlin-3a (-),,,missing
+1048,Mirin,,,missing
+1049,PD173074,"PD-173074, PD 173074",CCN(CC)CCCCNc1ncc2cc(-c3cc(OC)cc(OC)c3)c(NC(=O)NC(C)(C)C)nc2n1,name
+1050,ZM447439,"ZM-447439, ZM 447439",COc1cc2c(Nc3ccc(NC(=O)c4ccccc4)cc3)ncnc2cc1OCCCN1CCOCC1,name
+1051,Alisertib,MLN8237,COc1cc(Nc2ncc3c(n2)-c2ccc(Cl)cc2C(c2c(F)cccc2OC)=NC3)ccc1C(=O)O,name
+1052,RO-3306,,O=C1NC(=NCc2cccs2)SC1=Cc1ccc2ncccc2c1,name
+1053,MK-2206,"MK 2206, MK2206",NC1(c2ccc(-c3nc4ccn5c(=O)[nH]nc5c4cc3-c3ccccc3)cc2)CCC1,name
+1054,Palbociclib,"PD0332991, PD-0332991, PF-00080665-73",CC(=O)c1c(C)c2cnc(Nc3ccc(N4CCNCC4)cn3)nc2n(C2CCCC2)c1=O,name
+1057,Dactolisib,"NVP-BEZ235, BEZ235",Cn1c(=O)n(-c2ccc(C(C)(C)C#N)cc2)c2c3cc(-c4cnc5ccccc5c4)ccc3ncc21,name
+1058,Pictilisib,"GDC-0941, GDC0941, RG-7621",CS(=O)(=O)N1CCN(Cc2cc3nc(-c4cccc5[nH]ncc45)nc(N4CCOCC4)c3s2)CC1,name
+1059,AZD8055,AZD-8055,COc1ccc(-c2ccc3c(N4CCOCC4C)nc(N4CCOCC4C)nc3n2)cc1CO,name
+1060,PD0325901,"PD-0325901, PD 0325901",O=C(NOCC(O)CO)c1ccc(F)c(F)c1Nc1ccc(I)cc1F,name
+1061,SB590885,SB-590885,CN(C)CCOc1ccc(-c2nc(-c3ccc4c(c3)CCC4=NO)c(-c3ccncc3)[nH]2)cc1,name
+1062,Selumetinib,"AZD6244, AZD-6244, ARRY-886",Cn1cnc2c(F)c(Nc3ccc(Br)cc3Cl)c(C(=O)NOCCO)cc21,name
+1066,AZD6482,"AZD 6482, AZD-6482, AK-55409",Cc1cc(C(C)Nc2ccccc2C(=O)O)c2nc(N3CCOCC3)cc(=O)n2c1,name
+1067,CCT007093,,O=C1C(=Cc2cccs2)CCC1=Cc1cccs1,name
+1068,Obatoclax Mesylate,"GX15-070MS, Obatoclax, GX15-070",COc1cc(=C2C=c3ccccc3=N2)[nH]c1=Cc1[nH]c(C)cc1C.CS(=O)(=O)O,name
+1069,EHT-1864,EHT 1864,Cl.Cl.O=c1cc(CN2CCOCC2)occ1OCCCCCSc1ccnc2cc(C(F)(F)F)ccc12,name
+1070,CRT0105950,,,missing
+1071,CRT0105446,,,missing
+1072,Avagacestat,"BMS-708163, BMS 708163",NC(=O)C(CCC(F)(F)F)N(Cc1ccc(-c2ncon2)cc1F)S(=O)(=O)c1ccc(Cl)cc1,name
+1073,5-Fluorouracil,5-FU,O=c1[nH]cc(F)c(=O)[nH]1,name
+1079,Dasatinib,"BMS-354825-03, BMS-354825, Sprycel",Cc1nc(Nc2ncc(C(=O)Nc3c(C)cccc3Cl)s2)cc(N2CCN(CCO)CC2)n1,name
+1080,Paclitaxel,"BMS-181339-01, Taxol, Onxol, Paxene, Praxel, Abraxane",CC(=O)OC1C(=O)C2(C)C(O)CC3OCC3(OC(C)=O)C2C(OC(=O)c2ccccc2)C2(O)CC(OC(=O)C(O)C(NC(=O)c3ccccc3)c3ccccc3)C(C)=C1C2(C)C,name
+1083,Crizotinib,"Xalkori, PF2341066, PF-2341066, PF 2341066",CC(Oc1cc(-c2cnn(C3CCNCC3)c2)cnc1N)c1c(Cl)ccc(F)c1Cl,name
+1084,Rapamycin,"AY-22989, Sirolimus, WY-090217, Torisel, Rapamune",COC1CC2CCC(C)C(O)(O2)C(=O)C(=O)N2CCCCC2C(=O)OC(C(C)CC2CCC(O)C(OC)C2)CC(=O)C(C)C=C(C)C(O)C(OC)C(=O)C(C)CC(C)C=CC=CC=C1C,name
+1085,Sorafenib,"Nexavar, 284461-73-0, BAY 43-9006",CNC(=O)c1cc(Oc2ccc(NC(=O)Nc3ccc(Cl)c(C(F)(F)F)c3)cc2)ccn1,name
+1086,BI-2536,,CCC1C(=O)N(C)c2cnc(Nc3ccc(C(=O)NC4CCN(C)CC4)cc3OC)nc2N1C1CCCC1,name
+1088,Irinotecan,"Camptosar, (+)-Irinotecan, Irinotecanum, irinotecan hydrochloride",,missing
+1089,Oxaliplatin,Eloxatin,,missing
+1091,BMS-536924,BMS 536924,Cc1cc(N2CCOCC2)cc2[nH]c(-c3c(NCC(O)c4cccc(Cl)c4)cc[nH]c3=O)nc12,name
+1093,GSK1904529A,"GSK-1904529A, GSK 1904529A",CCc1cc(Nc2nccc(-c3c(-c4ccc(OC)c(C(=O)Nc5c(F)cccc5F)c4)nc4ccccn34)n2)c(OC)cc1N1CCC(N2CCN(S(C)(=O)=O)CC2)CC1,name
+1096,Tozasertib,"MK 0457,MK-0457,MK-045, VX-680 VX 680 VX-68",Cc1cc(Nc2cc(N3CCN(C)CC3)nc(Sc3ccc(NC(=O)C4CC4)cc3)n2)n[nH]1,name
+1114,Cetuximab,"Erbitux, IMC-C225, C225, IMC-225, L01XC06",,missing
+1128,FS106,,,missing
+1129,PF-4708671,"PF 4708671, PF4708671",CCc1cncnc1N1CCN(Cc2nc3ccc(C(F)(F)F)cc3[nH]2)CC1,name
+1131,PRIMA-1MET,"Prima 1MET, APR-246",,missing
+1133,Serdemetan,JNJ-26854165,c1ccc2c(CCNc3ccc(Nc4ccncc4)cc3)c[nH]c2c1,name
+1135,AZD4547,AZ6,COc1cc(CCc2cc(NC(=O)c3ccc(N4CC(C)NC(C)C4)cc3)n[nH]2)cc(OC)c1,name
+1136,Capivasertib,AZ5363,NC1(C(=O)NC(CCO)c2ccc(Cl)cc2)CCN(c2ncnc3[nH]ccc23)CC1,name
+1142,HG-5-113-01,,,missing
+1143,HG-5-88-01,,,missing
+1145,THZ-1-87,,,missing
+1149,TW 37,"TW37, TW-37",CC(C)c1ccccc1Cc1cc(C(=O)Nc2ccc(S(=O)(=O)c3ccccc3C(C)(C)C)cc2)c(O)c(O)c1O,name
+1155,QL-XII-47,,,missing
+1157,XMD11-50,,,missing
+1158,XMD11-85h,,,missing
+1161,ZG-10,,CN(C)CC=CC(=O)Nc1ccc(C(=O)Nc2cccc(Nc3nccc(-c4cccnc4)n3)c2)cc1,name
+1164,XMD8-92,XMD 8-92,CCOc1cc(N2CCC(O)CC2)ccc1Nc1ncc2c(n1)N(C)c1ccccc1C(=O)N2C,name
+1165,THZ-2-98-01,,,missing
+1166,QL-VIII-58,,,missing
+1167,NG-25,,CCN1CCN(Cc2ccc(NC(=O)c3ccc(C)c(Oc4ccnc5[nH]ccc45)c3)cc2C(F)(F)F)CC1,name
+1168,Erlotinib,"Tarceva, RG-1415, CP-358774, OSI-774, Ro-508231, R-1415",C#Cc1cccc(Nc2ncnc3cc(OCCOC)c(OCCOC)cc23)c1,name
+1170,CCT-018159,"CCT018159, CCT 018159",CCc1cc(-c2n[nH]c(C)c2-c2ccc3c(c2)OCCO3)c(O)cc1O,name
+1175,Rucaparib,"PF-01367338, AG-014699, AG-14447, AG-14699",CNCc1ccc(-c2[nH]c3cc(F)cc4c3c2CCNC4=O)cc1,name
+1177,Niraparib,"MK-4827, MK4827",,missing
+1179,MK-1775,"AZD1775, Adavosertib",,missing
+1180,Dinaciclib,"SCH727965, SCH 727965, SCH-727-965, MK-7965",,missing
+1183,CRT0160829,,,missing
+1184,AZ20,,CC1COCCN1c1cc(C2(S(C)(=O)=O)CC2)nc(-c2cccc3[nH]ccc23)n1,name
+1185,KU-60019,,CC1CN(CC(=O)Nc2ccc3c(c2)Cc2cccc(-c4cc(=O)cc(N5CCOCC5)o4)c2S3)CC(C)O1,name
+1186,FS112,,,missing
+1187,CCT245232,,,missing
+1188,CCT245467,,,missing
+1190,Gemcitabine,"Gemzar, LY-188011",Nc1ccn(C2OC(CO)C(O)C2(F)F)c(=O)n1,name
+1191,Bortezomib,"PS-341, LDP-341, Velcade",CC(C)CC(NC(=O)C(Cc1ccccc1)NC(=O)c1cnccn1)B(O)O,name
+1192,GSK269962A,GSK 269962A,CCn1c(-c2nonc2N)nc2cnc(Oc3cccc(NC(=O)c4ccc(OCCN5CCOCC5)cc4)c3)cc21,name
+1194,SB505124,"SB 505124, SB505124",Cc1cccc(-c2[nH]c(C(C)(C)C)nc2-c2ccc3c(c2)OCO3)n1,name
+1195,FY026,"[(para-cymene)osmium(N,N-dimethylphenlyazopyridine)(iodide)]hexafluorophophate",,missing
+1196,FY069,[(biphenyl)osmium(5-fluoro-phenlyazopyridine)(iodide)]hexafluorophophate,,missing
+1197,ZL049,[(diphenyltetramethylcyclopentadienyl)iridium(III)(2-phenylpyridine)(chloride)],,missing
+1198,FY012,,,missing
+1199,Tamoxifen,"Nolvadex, Soltamox, Zynoplex, ICI-46474, Kessar",CCC(=C(c1ccccc1)c1ccc(OCCN(C)C)cc1)c1ccccc1,name
+1200,Fulvestrant,"Faslodex, ICI-182780",CC12CCC3c4ccc(O)cc4CC(CCCCCCCCCS(=O)CCCC(F)(F)C(F)(F)F)C3C1CCC2O,name
+1202,torin2,,,missing
+1203,QL-XII-61,,,missing
+1204,HG-6-71-01,,,missing
+1218,JQ1,"JQ-1, (+)-JQ-1",Cc1sc2c(c1C)C(c1ccc(Cl)cc1)=NC(CC(=O)OC(C)(C)C)c1nnc(C)n1-2,name
+1219,PFI-1,,COc1ccccc1S(=O)(=O)Nc1ccc2c(c1)CN(C)C(=O)N2,name
+1230,IOX2,"IOX-2, IOX 2, AK176060",O=C(O)CNC(=O)c1c(O)c2ccccc2n(Cc2ccccc2)c1=O,name
+1232,I-BET-151,GSK12100151A,,missing
+1236,UNC0638,"UNC-0638, UNC 0683",COc1cc2c(NC3CCN(C(C)C)CC3)nc(C3CCCCC3)nc2cc1OCCCN1CCCC1,name
+1237,EPZ004777,EPZ-004777,,missing
+1239,YK-4-279,YK 4-279,COc1ccc(C(=O)CC2(O)C(=O)Nc3c(Cl)ccc(Cl)c32)cc1,name
+1241,CHIR-99021,"CT 99021, CHIR99021, CHIR 99021",Cc1cnc(-c2cnc(NCCNc3ccc(C#N)cn3)nc2-c2ccc(Cl)cc2Cl)[nH]1,name
+1242,(5Z)-7-Oxozeaenol,"5Z-7-Oxozeaenol, LL-Z1640-2",COc1cc(O)c2c(c1)C=CCC(O)C(O)C(=O)C=CCC(C)OC2=O,name
+1243,Piperlongumine,Piplartine,COc1cc(C=CC(=O)N2CCC=CC2=O)cc(OC)c1OC,name
+1248,Daporinad,"APO866,  FK866, FK866",O=C(C=Cc1cccnc1)NCCCCC1CCN(C(=O)c2ccccc2)CC1,name
+1249,BMS-345541,,Cc1ccc2nc(NCCN)c3ncc(C)n3c2c1.Cl,name
+1250,AZ960,"AZ 960, AZ-960",,missing
+1251,N22899-6-C1,,,missing
+1252,N23918-95-7,,,missing
+1253,N24798-49-A1,,,missing
+1254,GSK-J4,,,missing
+1259,Talazoparib,"BMN-673, BMN 973",Cn1ncnc1C1c2n[nH]c(=O)c3cc(F)cc(c23)NC1c1ccc(F)cc1,name
+1261,rTRAIL,,,missing
+1262,UNC1215,UNC-1215,O=C(c1ccc(C(=O)N2CCC(N3CCCC3)CC2)c(Nc2ccccc2)c1)N1CCC(N2CCCC2)CC1,name
+1263,UNC0642,,COc1cc2c(NC3CCN(C(C)C)CC3)nc(N3CCC(F)(F)CC3)nc2cc1OCCCN1CCCC1,name
+1264,SGC0946,,CC(C)N(CCCNC(=O)Nc1ccc(C(C)(C)C)cc1)CC1OC(n2cc(Br)c3c(N)ncnc32)C(O)C1O,name
+1266,ICL1100013,,,missing
+1268,XAV939,"NVP-XAV939, XAV-939, XAV 939",O=c1[nH]c(-c2ccc(C(F)(F)F)cc2)nc2c1CSCC2,name
+1359,965-D2,,,missing
+1360,993-D2,,,missing
+1362,BAY ACCi,,,missing
+1363,BAY AKT1,,,missing
+1364,BAY-HDAC11_1,,,missing
+1365,BAY-HDAC11_2,,,missing
+1367,BAY-HDAC11_4,,,missing
+1368,BAY-MPS1,,,missing
+1369,BAY-MPS-combo-1 (paclitaxel 5 uM),,,missing
+1370,BAY-MPS-combo 2 (paclitaxel 1 uM),,,missing
+1371,PLX-4720,"PLX4720, PLX 4720",CCCS(=O)(=O)Nc1ccc(F)c(C(=O)c2c[nH]c3ncc(Cl)cc23)c1F,name
+1372,Trametinib,"GSK1120212, Mekinist",CC(=O)Nc1cccc(-n2c(=O)n(C3CC3)c(=O)c3c(Nc4ccc(I)cc4F)n(C)c(=O)c(C)c32)c1,name
+1373,Dabrafenib,"GSK2118436, Tafinlar",CC(C)(C)c1nc(-c2cccc(NS(=O)(=O)c3c(F)cccc3F)c2F)c(-c2ccnc(N)n2)s1,name
+1375,Temozolomide,"Temodar, Temodal, M-39831, SCH 52365",Cn1nnc2c(C(N)=O)ncn2c1=O,name
+1377,Afatinib,"BIBW2992, Tovok, Gilotrif",CN(C)CC=CC(=O)Nc1cc2c(Nc3ccc(F)c(Cl)c3)ncnc2cc1OC1CCOC1,name
+1378,Bleomycin (50 uM),,,missing
+1379,ZL109,,,missing
+1382,AZD3514,SN1019841295,CC(=O)N1CCN(CCOc2ccc(C3CCN(C4=Nn5c(nnc5C(F)(F)F)CC4)CC3)cc2)CC1,name
+1386,Doxorubicin,,COc1cccc2c1C(=O)c1c(O)c3c(c(O)c1C2=O)CC(O)(C(=O)CO)CC3OC1CC(N)C(O)C(C)O1,name
+1392,Bleomycin (10 uM),,,missing
+1393,Gemcitabine,,Nc1ccn(C2OC(CO)C(O)C2(F)F)c(=O)n1,name
+1394,AZD6738,SN1034081770,CC1COCCN1c1cc(C2(S(C)(=N)=O)CC2)nc(-c2ccnc3[nH]ccc23)n1,name
+1401,AZD5438,SN1057898678,Cc1ncc(-c2ccnc(Nc3ccc(S(C)(=O)=O)cc3)n2)n1C(C)C,name
+1402,AZD7762,SN1031853762,NC(=O)Nc1cc(-c2cccc(F)c2)sc1C(=O)NC1CCCNC1,name
+1403,AZD6094,SN1042487586,CC(c1ccc2nccn2c1)n1nnc2ncc(-c3cnn(C)c3)nc21,name
+1407,Dyrk1b_0191,SN1008982787,,missing
+1409,AZD4877,SN1055467765,Cc1ccc(C(=O)N(CCCN)C(c2nc3snc(C)c3c(=O)n2Cc2ccccc2)C(C)C)cc1,name
+1413,EphB4_9721,SN1076287848,,missing
+1414,Fulvestrant,SN0117217688,CC12CCC3c4ccc(O)cc4CC(CCCCCCCCCS(=O)CCCC(F)(F)C(F)(F)F)C3C1CCC2O,name
+1416,AZD8931,SN0216062465,CNC(=O)CN1CCC(Oc2cc3c(Nc4cccc(Cl)c4F)ncnc3cc2OC)CC1,name
+1419,FEN1_3940,SN1106019609,,missing
+1421,FGFR_0939,SN1043317881,,missing
+1422,FGFR_3831,SN1037992934,,missing
+1425,BPTES,SN1041594574,O=C(Cc1ccccc1)Nc1nnc(CCSCCc2nnc(NC(=O)Cc3ccccc3)s2)s1,name
+1426,AZD7969,SN1098976045,,missing
+1427,AZD5582,SN1021632995,CNC(C)C(=O)NC(C(=O)N1CCCC1C(=O)NC1c2ccccc2CC1OCC#CC#CCOC1Cc2ccccc2C1NC(=O)C1CCCN1C(=O)C(NC(=O)C(C)NC)C1CCCCC1)C1CCCCC1,name
+1428,IAP_5620,SN1043546339,,missing
+1429,IAP_7638,SN1043547481,,missing
+1430,IGFR_3801,SN1056768819,,missing
+1432,AZD1480,SN1044232195,Cc1cc(Nc2nc(NC(C)c3ncc(F)cn3)ncc2Cl)n[nH]1,name
+1433,JAK1_3715,SN1042605297,,missing
+1434,JAK3_7406,SN1014281280,,missing
+1436,MCT1_6447,SN0177231247,,missing
+1437,MCT4_1422,SN1043999849,,missing
+1441,AZD2014,SN1103949359,CNC(=O)c1cccc(-c2ccc3c(N4CCOCC4C)nc(N4CCOCC4C)nc3n2)c1,name
+1444,AZD8186,SN1028722848,CC(Nc1cc(F)cc(F)c1)c1cc(C(=O)N(C)C)cc2c(=O)cc(N3CCOCC3)oc12,name
+1445,AZD8835,SN1040214596,CCn1nc(C2CCN(C(=O)CCO)CC2)nc1-c1cnc(N)c(-c2nnc(C(C)(C)C)o2)n1,name
+1446,PI3Ka_4409,SN1037097676,,missing
+1449,AZD1208,SN1028350371,NC1CCCN(c2c(C=C3SC(=O)NC3=O)cccc2-c2ccccc2)C1,name
+1451,PLK_6522,SN1077317349,,missing
+1453,RAF_9304,SN1034259943,,missing
+1458,PARP_9495,SN1024601395,,missing
+1459,PARP_0108,SN1044053371,,missing
+1460,PARP_9482,SN1031920820,,missing
+1461,TANK_1366,SN1032446568,,missing
+1463,AZD1332,SN1061387896,CC(C)Oc1cc(Nc2nc(NC(C)c3ccc(F)cn3)ncc2Cl)[nH]n1,name
+1464,TTK_3146,SN1080714093,,missing
+1490,SN-38,SN1095903706,CCc1c2c(nc3ccc(O)cc13)-c1cc3c(c(=O)n1C2)COC(=O)C3(O)CC,name
+1494,SN-38,"7-Ethyl-10-Hydroxy-Camptothecin, SN 38",CCc1c2c(nc3ccc(O)cc13)-c1cc3c(c(=O)n1C2)COC(=O)C3(O)CC,name
+1495,Olaparib,"AZD2281, KU0059436,  Lynparza",O=C(c1cc(Cc2n[nH]c(=O)c3ccccc23)ccc1F)N1CCN(C(=O)C2CC2)CC1,name
+1496,Cisplatin,Cisplatin,Cl[Pt]Cl.N.N,name
+1497,AZD4547,AZ6,COc1cc(CCc2cc(NC(=O)c3ccc(N4CC(C)NC(C)C4)cc3)n[nH]2)cc(OC)c1,name
+1498,Selumetinib,"AZD6244, AZD-6244, ARRY-886",Cn1cnc2c(F)c(Nc3ccc(Br)cc3Cl)c(C(=O)NOCCO)cc21,name
+1502,Bicalutamide,"ICI-176334, Casodex, Cosudex, ICI 176334",CC(O)(CS(=O)(=O)c1ccc(F)cc1)C(=O)Nc1ccc(C#N)c(C(F)(F)F)c1,name
+1507,Ruxolitinib,"INCB-18424, Ruxolitinib Phosphate, Jakafi",N#CCC(C1CCCC1)n1cc(-c2ncnc3[nH]ccc23)cn1,name
+1510,Linsitinib,"OSI-906, ASP-7487",CC1(O)CC(c2nc(-c3ccc4ccc(-c5ccccc5)nc4c3)c3c(N)nccn23)C1,name
+1511,Epirubicin,"Ellence, Farmorubicin, IMI-28",,missing
+1512,Cyclophosphamide,"Cytoxan, Neosar, Cyclophosphamid, Procytox, Cyclophosphane",,missing
+1526,Refametinib,"RDEA119, BAY-86-9766, BAY 869766",COc1cc(F)c(F)c(Nc2ccc(I)cc2F)c1NS(=O)(=O)C1(CC(O)CO)CC1,name
+1527,Pictilisib,"GDC-0941, GDC0941, RG-7621",CS(=O)(=O)N1CCN(Cc2cc3nc(-c4cccc5[nH]ncc45)nc(N4CCOCC4)c3s2)CC1,name
+1529,Pevonedistat,"MLN4924, MLN 4924, MLN-4924",NS(=O)(=O)OCC1CC(n2ccc3c(NC4CCc5ccccc54)ncnc32)CC1O,name
+1530,PFI-3,BDF00016096,O=C(C=CN1CC2CC1CN2c1ccccn1)c1ccccc1O,name
+1531,I-CBP112,,,missing
+1549,Sapitinib,AZD8931,CNC(=O)CN1CCC(Oc2cc3c(Nc4cccc(Cl)c4F)ncnc3cc2OC)CC1,synonym
+1553,Uprosertib,"GSK2141795, GSK2141795C, GSK-2141795",,missing
+1557,LCL161,,CNC(C)C(=O)NC(C(=O)N1CCCC1c1nc(C(=O)c2ccc(F)cc2)cs1)C1CCCCC1,name
+1558,Lapatinib,"Tykerb, Tyverb",CS(=O)(=O)CCNCc1ccc(-c2ccc3ncnc(Nc4ccc(OCc5cccc(F)c5)c(Cl)c4)c3c2)o1,name
+1559,Luminespib,"AUY922, VER-52296,NVP-AUY922,  AUY",CCNC(=O)c1noc(-c2cc(C(C)C)c(O)cc2O)c1-c1ccc(CN2CCOCC2)cc1,name
+1560,Alpelisib,"BYL719, BYL-719, NVP-BYL719",,missing
+1561,Taselisib,"GDC-0032, GDC0032, RG7604",,missing
+1563,EPZ5676,"EPZ-5676, Pinometostat",,missing
+1564,SCH772984,CS-1421,,missing
+1576,IWP-2,Wnt Inhibitor IWP-2,,missing
+1578,Leflunomide,"Sulol, SU-101, HWA-486, Arava",,missing
+1580,GSK2801,"1-(7-(2-methylsulfonyl-phenyl)-4-propoxy-1-aza-bicyclo[4.3.0]nona-2,4,6,8-tetraen-9-yl)-ethanone",,missing
+1581,Bromosporine,"ethyl N-[6-(3-methanesulfonamido-4-methylphenyl)-3-methyl-[1,2,4]triazolo[4,3-b]pyridazin-8-yl]carbamate",,missing
+1582,SGC-CBP30,"8-(3-chloro-4-methoxy-phenethyl)-4-(3,5-dimethyl-isoxazol-4-yl)-9-(2-(morpholin-4-yl)-propyl)-7,9-diaza-bicyclo[4.3.0]nona-1(6),2,4,7-tetraene",,missing
+1583,GSK-LSD1,"N-((1R,2S)-2-phenylcyclopropyl)piperidin-4-amine",,missing
+1584,BDOCA000347a,"4-bromo-N-(6-methoxy-1,3-dimethyl-2-oxo-2,3-dihydro-1H-benzo[d]imidazol-5-yl)-2-methylbenzenesulfonamide",,missing
+1585,BDF00022089a,,,missing
+1586,BDILV000379a,"4-(4-(1-methyl-1H-pyrazol-4-yl)-1-(2-(1-methyl-1H-pyrazol-4-yl)ethyl)-4,5-dihydro-1H-imidazol-5-yl)benzonitrile",,missing
+1593,Entinostat,MS-275,Nc1ccccc1NC(=O)c1ccc(CNC(=O)OCc2cccnc2)cc1,name
+1594,OSI-027,A-1065-5,COc1cccc2cc(-c3nc(C4CCC(C(=O)O)CC4)n4ncnc(N)c34)[nH]c12,name
+1598,LGK974,LGK-974,Cc1cc(-c2ncc(CC(=O)Nc3ccc(-c4cnccn4)cn3)cc2C)ccn1,name
+1613,VE-822,"VE 822, VE822, Berzosertib",,missing
+1614,WZ4003,WZ 4003,,missing
+1615,CZC24832,GTPL6653,,missing
+1617,AZD5582,"GTPL7710, AOB5560",CNC(C)C(=O)NC(C(=O)N1CCCC1C(=O)NC1c2ccccc2CC1OCC#CC#CCOC1Cc2ccccc2C1NC(=O)C1CCCN1C(=O)C(NC(=O)C(C)NC)C1CCCCC1)C1CCCCC1,name
+1618,GSK2606414,AK175551,,missing
+1620,PFI3,"PFI-3, PFI 3, AOB2221",O=C(C=CN1CC2CC1CN2c1ccccn1)c1ccccc1O,synonym
+1621,PCI-34051,AK298746,,missing
+1622,Wnt-C59,"AOB3540, AK161197",Cc1cc(-c2ccc(CC(=O)Nc3ccc(-c4cccnc4)cc3)cc2)ccn1,name
+1624,I-BET-762,GSK525762A,CCNC(=O)CC1N=C(c2ccc(Cl)cc2)c2cc(OC)ccc2-n2c(C)nnc21,name
+1625,RVX-208,"1044870-39-4, Apabetalone",,missing
+1626,OTX015,"Birabresib, OTX-015, MK-8628",,missing
+1627,GSK343,"GTPL8240, AOB3680, AK175558",,missing
+1629,ML323,"GTPL7898, AOB2313,",,missing
+1630,Entospletinib,GS-9973,,missing
+1631,PRT062607,"P505-15, PRT-2607, BIIB-057",,missing
+1632,Ribociclib,"LEE011, NVP-LEE011, LEE011-BBA",,missing
+1634,AGI-6780,AK162157,O=C(Nc1cccc(C(F)(F)F)c1)Nc1cc(S(=O)(=O)NC2CC2)ccc1-c1ccsc1,name
+1635,Picolinici-acid,Picolinate,,missing
+1706,AZD5153,"SN1045566955, AZD5153",,missing
+1708,CDK9_5576,"SN1047226266, CDK9_5576",,missing
+1709,CDK9_5038,"SN1047483750, CDK9_5038",,missing
+1712,Eg5_9814,"SN1047613775, Eg5_9814",,missing
+1713,ERK_2440,"SN1051032892, ERK_2440",,missing
+1714,ERK_6604,"SN1047587618, ERK_6604",,missing
+1716,IRAK4_4710,"SN1050852374, IRAK4_4710",,missing
+1718,JAK1_8709,"SN1049200060, JAK1_8709",,missing
+1720,AZD5991,"SN1049446612, AZD5991",,missing
+1730,PAK_5339,"SN1046290829, PAK_5339",,missing
+1732,TAF1_5496,"SN1050393042, TAF1_5496",,missing
+1733,ULK1_4989,"SN1049257073, ULK1_4989",,missing
+1734,VSP34_8731,"SN1049998399, VSP34_8731",,missing
+1736,Selumetinib,"SN1103949345, AZD1480",Cn1cnc2c(F)c(Nc3ccc(Br)cc3Cl)c(C(=O)NOCCO)cc21,name
+1738,IGF1R_3801,"SN1051640224, IGF1R_3801",,missing
+1739,JAK_8517,"SN1066590414, JAK_8517",,missing
+1776,GSK2256098C,,,missing
+1777,GSK2276186C,,,missing
+1778,GSK2110183B,,,missing
+1779,GSK626616AC,,,missing
+1780,GSK3337463A,,,missing
+1782,GSK2830371A,,,missing
+1783,LMB_AB1,,,missing
+1784,LMB_AB2,,,missing
+1785,LMB_AB3,,,missing
+1786,AZD4547,1035270-39-3,COc1cc(CCc2cc(NC(=O)c3ccc(N4CC(C)NC(C)C4)cc3)n[nH]2)cc(OC)c1,name
+1799,Ibrutinib,"PCI-32765, CRA-032765, PCI-32765-00",,missing
+1802,Zoledronate,"Zoledronic acid, Zometa, Reclast",,missing
+1803,Acetalax,Oxyphenisatin acetate,,missing
+1804,Acetalax,Oxyphenisatin acetate,,missing
+1806,Oxaliplatin,,,missing
+1808,Topotecan,,,missing
+1809,Teniposide,Vumon,,missing
+1810,Mitoxantrone,,,missing
+1811,Dactinomycin,Actinomycin D,,missing
+1812,Bleomycin,,Cc1c(N)nc(C(CC(N)=O)NCC(N)C(N)=O)nc1C(=O)NC(C(=O)NC(C)C(O)C(C)C(=O)NC(C(=O)NCCc1nc(-c2nc(C(=O)NCCC[S+](C)C)cs2)cs1)C(C)O)C(OC1OC(CO)C(O)C(O)C1OC1OC(CO)C(O)C(OC(N)=O)C1O)c1cnc[nH]1,name
+1813,Fludarabine,Fludara,,missing
+1814,Nelarabine,"Atriance, Arranon",,missing
+1815,Dacarbazine,DTIC,,missing
+1816,Fulvestrant,,CC12CCC3c4ccc(O)cc4CC(CCCCCCCCCS(=O)CCCC(F)(F)C(F)(F)F)C3C1CCC2O,name
+1817,Romidepsin,"Istodax, FK228, Depsipeptide",,missing
+1819,Docetaxel,"RP-56976, Taxotere",CC(=O)OC12COC1CC(O)C1(C)C(=O)C(O)C3=C(C)C(OC(=O)C(O)C(NC(=O)OC(C)(C)C)c4ccccc4)CC(O)(C(OC(=O)c4ccccc4)C21)C3(C)C,name
+1820,123829,,,missing
+1821,765771,,,missing
+1824,123138,,,missing
+1825,Podophyllotoxin bromide,,,missing
+1826,50869,,,missing
+1827,Dihydrorotenone,,,missing
+1828,720427,,,missing
+1829,667880,,,missing
+1830,Gallibiscoquinazole,,,missing
+1831,L-Oxonoreleagnine,,,missing
+1832,729189,,,missing
+1833,741909,,,missing
+1834,743380,,,missing
+1835,Elephantin,,,missing
+1836,150412,,,missing
+1838,Sinularin,,,missing
+1839,615590,,,missing
+1840,630600,,,missing
+1843,LMP744,MJ-III-65,,missing
+1844,776928,,,missing
+1845,Schweinfurthin A,,,missing
+1847,BEN,,,missing
+1849,Sabutoclax,BI-97C1,,missing
+1852,LY2109761,5XE,,missing
+1853,OF-1,,,missing
+1854,MN-64,,,missing
+1855,KRAS (G12C) Inhibitor-12,GTPL8020,,missing
+1862,MG-132,"LLL cpd, MG 132, MG132",CC(C)CC(C=O)NC(=O)C(CC(C)C)NC(=O)C(CC(C)C)NC(=O)OCc1ccccc1,name
+1866,BDP-00009066,,,missing
+1873,Buparlisib,"BKM120, NVP-BKM120",,missing
+1908,Ulixertinib,"BVD-523, VRT752271",,missing
+1909,Venetoclax,"ABT-199, Veneclexta, GDC-0199",,missing
+1910,ABT737,,,missing
+1911,Dactinomycin,"Actinomycin D, Cosmegen, Lyovac, Meractinomycin, Ac-De, ActD",,missing
+1912,Afuresertib,"GSK2110183, GSK2110183C",,missing
+1913,AGI-5198,IDH-C35,,missing
+1915,AZD3759,,,missing
+1916,AZD5363,,,missing
+1917,AZD6738,"AZD 6738, AZD-6738",CC1COCCN1c1cc(C2(S(C)(=N)=O)CC2)nc(-c2ccnc3[nH]ccc23)n1,name
+1918,AZD8186,"AZD 8186, AZD-8186",CC(Nc1cc(F)cc(F)c1)c1cc(C(=O)N(C)C)cc2c(=O)cc(N3CCOCC3)oc12,name
+1919,Osimertinib,"AZD9291, AZD 9291, AZD-9291, Tagrisso, Mereletinib",,missing
+1922,Cediranib,"AZD2171, AZD 2171, AZD-2171, Recentin",,missing
+1924,Ipatasertib,"GDC0068, GDC 0068, GDC-0068",,missing
+1925,GDC0810,"GDC-0810, GDC 0810",,missing
+1926,GNE-317,"GNE317, GNE 317",,missing
+1927,GSK2578215A,"GSK 2578215A,  GSK-2578215A",,missing
+1928,I-BRD9,"GSK602, GSK 602, GSK-602",,missing
+1930,Telomerase Inhibitor IX,"MST-312, MST 312, MST312",,missing
+1931,MIRA-1,"MIRA 1, MIRA1, NSC19630, NSC-19630, NSC 19630",,missing
+1932,NVP-ADW742,"NVP ADW742, NVPADW742",,missing
+1933,P22077,"P 22077, P-22077",,missing
+1936,Savolitinib,"AZD6094, Volitinib, AZD-6094, AZD 6094",CC(c1ccc2nccn2c1)n1nnc2ncc(-c3cnn(C)c3)nc21,synonym
+1939,UMI-77,"UMI 77, UMI-77",,missing
+1940,WIKI4,"WIKI-4, WIKI 4",,missing
+1941,Sepantronium bromide,"YM155, YM-155, YM 155",COCCn1c2c([n+](Cc3cnccn3)c1C)C(=O)c1ccccc1C2=O.[Br-],name
+1996,MIM1,"MIM 1, MIM-1",Cc1csc(=NC2CCCCC2)n1N=Cc1ccc(O)c(O)c1O,name
+1997,WEHI-539,"WEHI539, WEHI-539",,missing
+1998,BPD-00008900,,,missing
+1999,N25720-51-A1,,,missing
+2000,N27922-53-1,,,missing
+2002,N30652-18-1,,,missing
+2003,N29087-69-1,,,missing
+2010,HKMTI-1-005,,,missing
+2011,ICL-SIRT078,,,missing
+2037,GSK343,,,missing
+2038,UNC0638,,COc1cc2c(NC3CCN(C(C)C)CC3)nc(C3CCCCC3)nc2cc1OCCCN1CCCC1,name
+2039,AGK2,,,missing
+2040,Foretinib,"GSK1363089, XL-880, EXEL-2880, GSK089",COc1cc2c(Oc3ccc(NC(=O)C4(C(=O)Nc5ccc(F)cc5)CC4)cc3F)ccnc2cc1OCCCN1CCOCC1,name
+2043,BIBR-1532,,,missing
+2044,Pyridostatin,,,missing
+2045,AMG-319,AMG319,,missing
+2046,MK-8776,SCH900776,,missing
+2047,Ulixertinib,"BVD-523, VRT752271",,missing
+2048,Vinorelbine,"vinorelbine tartrate, Navelbine, Exelbine",CCC1=CC2CN(C1)Cc1c([nH]c3ccccc13)C(C(=O)OC)(c1cc3c(cc1OC)N(C)C1C(O)(C(=O)OC)C(OC(C)=O)C4(CC)C=CCN5CCC31C54)C2,name
+2055,Mycophenolic acid,,,missing
+2057,Remodelin,,,missing
+2096,VX-11e,"VX11e, VX11e",Cc1cnc(Nc2ccc(F)cc2Cl)nc1-c1c[nH]c(C(=O)NC(CO)c2cccc(Cl)c2)c1,name
+2106,Uprosertib,"GSK2141795, GSK2141795C, GSK-2141795",,missing
+2107,LJI308,,,missing
+2109,AZ6102,,,missing
+2110,GSK591,"EPZ015866, GSK3203591",,missing
+2111,VE821,"VE 821, VE-821",,missing
+2112,VTP-A,,,missing
+2113,VTP-B,,,missing
+2145,PBD-288,,,missing
+2148,POMHEX,,,missing
+2149,CT7033-2,,,missing
+2154,GSK-LSD1-2HCl ,,,missing
+2156,5-azacytidine,,,missing
+2157,A-366,,,missing
+2158,CPI-637,,,missing
+2159,UNC0379,,,missing
+2169,AZD6482,"AZD 6482, AZD-6482, AK-55409",Cc1cc(C(C)Nc2ccccc2C(=O)O)c2nc(N3CCOCC3)cc(=O)n2c1,name
+2170,AT13148,,,missing
+2171,BMS-754807,BMS-754807,CC1(C(=O)Nc2ccc(F)nc2)CCCN1c1nc(Nc2cc(C3CC3)[nH]n2)c2cccn2n1,name
+2172,JQ1,"JQ-1, (+)-JQ-1",Cc1sc2c(c1C)C(c1ccc(Cl)cc1)=NC(CC(=O)OC(C)(C)C)c1nnc(C)n1-2,name
+2173,PFI-1,,COc1ccccc1S(=O)(=O)Nc1ccc2c(c1)CN(C)C(=O)N2,name
+2174,IOX2,"IOX-2, IOX 2, AK176060",O=C(O)CNC(=O)c1c(O)c2ccccc2n(Cc2ccccc2)c1=O,name
+2175,CHIR-99021,"CT 99021, CHIR99021, CHIR 99021",Cc1cnc(-c2cnc(NCCNc3ccc(C#N)cn3)nc2-c2ccc(Cl)cc2Cl)[nH]1,name
+2177,SGC0946,,CC(C)N(CCCNC(=O)Nc1ccc(C(C)(C)C)cc1)CC1OC(n2cc(Br)c3c(N)ncnc32)C(O)C1O,name
+2359,GSK2830371,,,missing
+2360,THR-101,WIMM synthesis,,missing
+2361,THR-102,WIMM synthesis,,missing
+2362,THR-103,WIMM synthesis,,missing
+2438,ascorbate (vitamin C),back-up solution from YWKim,,missing
+2439,glutathione,"G6013, sigma",,missing
+2498,alpha-lipoic acid,aLA,,missing
+2499,N-acetyl cysteine,NAC,,missing

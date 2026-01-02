@@ -66,7 +66,64 @@ def _strip_cell_line_descriptor(value: str) -> str:
 def _normalize_drug_name(value: str) -> str:
     if value is None or pd.isna(value):
         return ""
-    return str(value).strip().upper()
+    text = str(value).strip().upper()
+    for ch in ["-", "/", "\\", "(", ")", "[", "]", "{", "}", "'", '"']:
+        text = text.replace(ch, " ")
+    return " ".join(text.split())
+
+
+def _split_synonyms(value) -> list[str]:
+    if value is None or pd.isna(value):
+        return []
+    return [part.strip() for part in str(value).split(",") if part.strip()]
+
+
+_SALT_TOKENS = {
+    "HCL",
+    "HBR",
+    "H2SO4",
+    "H2SO3",
+    "HNO3",
+    "HYDROCHLORIDE",
+    "HYDROBROMIDE",
+    "SULFATE",
+    "SULPHATE",
+    "PHOSPHATE",
+    "NITRATE",
+    "ACETATE",
+    "MALEATE",
+    "FUMARATE",
+    "TARTRATE",
+    "CITRATE",
+    "OXALATE",
+    "MESYLATE",
+    "TOSYLATE",
+    "BESYLATE",
+    "TRIFLUOROACETATE",
+    "TFA",
+    "SODIUM",
+    "POTASSIUM",
+    "CALCIUM",
+    "MAGNESIUM",
+    "CHLORIDE",
+    "BROMIDE",
+    "IODIDE",
+}
+
+
+def _normalize_drug_key(value: str, drop_salts: bool = False) -> str:
+    base = _normalize_drug_name(value)
+    tokens = base.split()
+    if drop_salts:
+        tokens = [t for t in tokens if t not in _SALT_TOKENS]
+    return " ".join(tokens)
+
+
+def _is_missing_smiles(value) -> bool:
+    if value is None or pd.isna(value):
+        return True
+    text = str(value).strip()
+    return text == "" or text.lower() == "nan"
 
 
 def _build_name_map(map_df: pd.DataFrame) -> dict[str, str]:
@@ -131,12 +188,15 @@ def load_gdsc2_drugs(path: str) -> pd.DataFrame:
     name_col = _find_column(df, ["drug_name", "drug"], "screened compounds")
     target_col = _find_column(df, ["putative_target", "target", "target_pathway"], "screened compounds")
     smiles_col = _find_column(df, ["smiles", "canonical_smiles"], "screened compounds")
+    synonyms_col = _find_column(df, ["synonyms"], "screened compounds")
 
     drugs = pd.DataFrame({"drug": df[drug_id_col].astype(str)})
     if name_col:
         drugs["drug_name"] = df[name_col]
     if target_col:
         drugs["putative_target"] = df[target_col]
+    if synonyms_col:
+        drugs["synonyms"] = df[synonyms_col]
     drugs["smiles"] = df[smiles_col] if smiles_col else np.nan
 
     drugs = drugs.drop_duplicates(subset=["drug"]).reset_index(drop=True)
@@ -168,9 +228,12 @@ def load_gdsc_drug_annotation(path: str) -> pd.DataFrame:
         raise ValueError(f"Drug annotation missing SMILES columns: {list(df.columns)}")
     ann = df[["drug_name", smiles_col]].copy()
     ann = ann.rename(columns={smiles_col: "smiles"})
-    ann["drug_name"] = ann["drug_name"].astype(str)
-    ann["smiles"] = ann["smiles"].astype(str)
-    ann = ann.dropna(subset=["drug_name", "smiles"]).drop_duplicates(subset=["drug_name"])
+    ann["drug_name"] = ann["drug_name"].astype(str).str.strip()
+    ann["smiles"] = ann["smiles"].astype(str).str.strip()
+    ann = ann[ann["drug_name"].ne("") & ann["smiles"].ne("") & ann["smiles"].str.lower().ne("nan")]
+    ann = ann.drop_duplicates(subset=["drug_name"])
+    ann["drug_name_norm"] = ann["drug_name"].apply(_normalize_drug_key)
+    ann["drug_name_norm_nosalt"] = ann["drug_name"].apply(lambda x: _normalize_drug_key(x, drop_salts=True))
     return ann
 
 
@@ -301,8 +364,17 @@ def load_rnaseq_expression(
     expr = expr.loc[:, ~expr.columns.isna()]
     if expr.columns.has_duplicates:
         expr = expr.groupby(expr.columns, axis=1).mean()
+    max_nan_frac = 0.5
+    nan_frac = expr.isna().mean()
+    drop_cols = nan_frac[nan_frac > max_nan_frac].index
+    if len(drop_cols) > 0:
+        logger.info("Dropping %d genes with > %.0f%% missingness.", len(drop_cols), 100 * max_nan_frac)
+        expr = expr.drop(columns=drop_cols)
     expr = _select_top_genes(expr, n_genes=n_genes)
-    expr = (expr - expr.mean()) / expr.std(ddof=0)
+    mean = expr.mean()
+    std = expr.std(ddof=0).replace(0, np.nan)
+    expr = (expr - mean) / std
+    expr = expr.fillna(0.0)
     expr = expr.astype(np.float32)
     expr = expr.reset_index()
     return expr
@@ -374,24 +446,94 @@ def preprocess_gdsc2(raw_dir: str, processed_dir: str, n_genes: int = 2000, fing
 
     logger.info("Loading drug table...")
     drugs_df = load_gdsc2_drugs(str(drugs_path))
-    if drugs_df["smiles"].isna().all():
+    if drugs_df["smiles"].isna().any():
         ann_path = raw_path / "GDSC_DrugAnnotation.csv"
         if ann_path.exists():
             logger.info("Merging drug SMILES from %s", ann_path.name)
             ann_df = load_gdsc_drug_annotation(str(ann_path))
-            drugs_df["drug_name_norm"] = drugs_df.get("drug_name", "").apply(_normalize_drug_name)
-            ann_df["drug_name_norm"] = ann_df["drug_name"].apply(_normalize_drug_name)
-            merged = drugs_df.merge(
-                ann_df[["drug_name_norm", "smiles"]],
-                on="drug_name_norm",
-                how="left",
-                suffixes=("", "_ann"),
+            name_to_smiles = {}
+            name_to_smiles_nosalt = {}
+            ann_token_entries: list[tuple[set[str], str]] = []
+            for _, row in ann_df.iterrows():
+                norm = row["drug_name_norm"]
+                norm_nosalt = row["drug_name_norm_nosalt"]
+                if norm and norm not in name_to_smiles:
+                    name_to_smiles[norm] = row["smiles"]
+                if norm_nosalt and norm_nosalt not in name_to_smiles_nosalt:
+                    name_to_smiles_nosalt[norm_nosalt] = row["smiles"]
+                tokens = set(norm_nosalt.split()) if isinstance(norm_nosalt, str) else set()
+                if tokens:
+                    ann_token_entries.append((tokens, row["smiles"]))
+            drugs_df["smiles"] = drugs_df["smiles"].astype("object")
+            missing_before = int(drugs_df["smiles"].apply(_is_missing_smiles).sum())
+            filled_name = 0
+            filled_name_nosalt = 0
+            filled_syn = 0
+            filled_syn_nosalt = 0
+            filled_subset = 0
+            match_sources = []
+            for idx, row in drugs_df.iterrows():
+                if not _is_missing_smiles(row["smiles"]):
+                    match_sources.append("existing")
+                    continue
+                name_norm = _normalize_drug_key(row.get("drug_name", ""))
+                name_norm_nosalt = _normalize_drug_key(row.get("drug_name", ""), drop_salts=True)
+                smiles = None
+                source = "missing"
+                if name_norm and name_norm in name_to_smiles:
+                    smiles = name_to_smiles[name_norm]
+                    source = "name"
+                    filled_name += 1
+                elif name_norm_nosalt and name_norm_nosalt in name_to_smiles_nosalt:
+                    smiles = name_to_smiles_nosalt[name_norm_nosalt]
+                    source = "name_nosalt"
+                    filled_name_nosalt += 1
+                else:
+                    for syn in _split_synonyms(row.get("synonyms", None)):
+                        syn_norm = _normalize_drug_key(syn)
+                        if syn_norm and syn_norm in name_to_smiles:
+                            smiles = name_to_smiles[syn_norm]
+                            source = "synonym"
+                            filled_syn += 1
+                            break
+                        syn_norm_nosalt = _normalize_drug_key(syn, drop_salts=True)
+                        if syn_norm_nosalt and syn_norm_nosalt in name_to_smiles_nosalt:
+                            smiles = name_to_smiles_nosalt[syn_norm_nosalt]
+                            source = "synonym_nosalt"
+                            filled_syn_nosalt += 1
+                            break
+                if smiles is None:
+                    tokens = set(name_norm_nosalt.split())
+                    if len(tokens) >= 2:
+                        matches = {s for t, s in ann_token_entries if tokens.issubset(t)}
+                        if len(matches) == 1:
+                            smiles = next(iter(matches))
+                            source = "token_subset"
+                            filled_subset += 1
+                if smiles is not None:
+                    drugs_df.at[idx, "smiles"] = smiles
+                match_sources.append(source)
+            drugs_df["smiles_source"] = match_sources
+            filled_total = filled_name + filled_syn
+            logger.info(
+                "Filled SMILES for %d/%d missing drugs (name=%d, name_nosalt=%d, synonyms=%d, synonyms_nosalt=%d, token_subset=%d).",
+                filled_name + filled_name_nosalt + filled_syn + filled_syn_nosalt + filled_subset,
+                missing_before,
+                filled_name,
+                filled_name_nosalt,
+                filled_syn,
+                filled_syn_nosalt,
+                filled_subset,
             )
-            filled = merged["smiles"].isna() & merged["smiles_ann"].notna()
-            if filled.any():
-                merged.loc[filled, "smiles"] = merged.loc[filled, "smiles_ann"]
-            drugs_df = merged.drop(columns=["smiles_ann", "drug_name_norm"])
-            logger.info("Filled SMILES for %d/%d drugs.", int(filled.sum()), len(drugs_df))
+            report_cols = ["drug", "drug_name", "synonyms", "smiles", "smiles_source"]
+            report_df = drugs_df[[c for c in report_cols if c in drugs_df.columns]].copy()
+            report_path = processed_path / "smiles_match_report.csv"
+            report_df.to_csv(report_path, index=False)
+            missing_df = report_df[report_df["smiles_source"] == "missing"]
+            missing_path = processed_path / "smiles_unmatched.csv"
+            missing_df.to_csv(missing_path, index=False)
+            logger.info("Saved SMILES match report to %s", report_path)
+            logger.info("Saved unmatched drug list to %s", missing_path)
         else:
             logger.warning("No drug annotation file found at %s; SMILES remain missing.", ann_path)
     logger.info("Loading RNA-seq expression...")
