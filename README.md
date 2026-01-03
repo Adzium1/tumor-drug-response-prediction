@@ -54,6 +54,8 @@ source .venv/bin/activate  # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt
 # RDKit is best installed via conda:
 conda install -c conda-forge rdkit
+# Optional drug metadata enrichment (network calls to PubChem/ChEMBL):
+pip install drugs==0.1.1
 ```
 
 ## Pipeline (reproducible commands)
@@ -91,7 +93,16 @@ python scripts/data_manifest.py \
   --out outputs/data_manifest.json
 ```
 
-### 5) Train models
+### 5) (Optional) Enrich drug metadata (PubChem/ChEMBL)
+```bash
+python scripts/enrich_drugs.py \
+  --processed-dir data/processed \
+  --sleep-sec 0.2
+```
+Outputs `data/processed/drug_metadata_enriched.parquet` (plus per-drug markdown reports if
+`--report-dir` is provided).
+
+### 6) Train models
 - Torch fusion model:
 ```bash
 python scripts/train.py --config configs/default.yaml --output outputs/gdsc2_run1
@@ -107,7 +118,7 @@ python scripts/train_baseline_ml.py \
   --omics-pca 256 --drug-pca 128 --hidden-layers 512,256
 ```
 
-### 6) SHAP explanations for the torch model
+### 7) SHAP explanations for the torch model
 ```bash
 python scripts/explain.py \
   --config configs/default.yaml \
