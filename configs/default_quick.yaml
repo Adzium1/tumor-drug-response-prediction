@@ -34,7 +34,7 @@ training:
   # Adam learning rate; adjust alongside batch size.
   lr: 0.001
   weight_decay: 0.0001
-  max_epochs: 100
+  max_epochs: 20
   # Legacy split strategy for fusion training; CSV splits live in scripts/make_splits.py.
   split_strategy: "leave_cell_line_out"
   k_folds: 5

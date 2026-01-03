@@ -102,6 +102,15 @@ python scripts/enrich_drugs.py \
 Outputs `data/processed/drug_metadata_enriched.parquet` (plus per-drug markdown reports if
 `--report-dir` is provided).
 
+To enable enriched drug features during fusion training, set:
+```yaml
+data:
+  use_enriched_drug_features: true
+  enriched_drug_metadata_path: "data/processed/drug_metadata_enriched.parquet"
+  enriched_numeric_columns: ["pubchem_logp", "pubchem_tpsa", "pubchem_mw"]
+```
+Leave `use_enriched_drug_features: false` to keep the default fingerprint-only behavior.
+
 ### 6) Train models
 - Torch fusion model:
 ```bash

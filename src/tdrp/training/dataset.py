@@ -1,10 +1,14 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Dict, Iterable, Tuple
+from typing import Dict, Iterable, Optional, Tuple
+import logging
 import torch
 from torch.utils.data import Dataset, DataLoader
 import pandas as pd
+
+
+logger = logging.getLogger(__name__)
 
 
 class PairDataset(Dataset):
@@ -19,8 +23,16 @@ class PairDataset(Dataset):
         drug_df: DataFrame with 'drug' + fingerprint bits.
         labels_df: DataFrame with columns ['cell_line', 'drug', 'ln_ic50'].
         """
-        self.labels = labels_df.reset_index(drop=True)
+        self.labels = labels_df.reset_index(drop=True).copy()
+        self.labels["cell_line"] = self.labels["cell_line"].astype(str)
+        self.labels["drug"] = self.labels["drug"].astype(str)
+
+        omics_df = omics_df.copy()
+        omics_df["cell_line"] = omics_df["cell_line"].astype(str)
         self.omics_df = omics_df.set_index("cell_line")
+
+        drug_df = drug_df.copy()
+        drug_df["drug"] = drug_df["drug"].astype(str)
         self.drug_df = drug_df.set_index("drug")
 
         missing_omics = set(self.labels["cell_line"]) - set(self.omics_df.index)
@@ -68,7 +80,50 @@ def make_dataloaders(
     return train_loader, val_loader
 
 
-def load_processed_tables(processed_dir: str) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+def _append_enriched_drug_features(
+    drug_df: pd.DataFrame,
+    enriched_path: Optional[str],
+    numeric_columns: Optional[Iterable[str]],
+) -> pd.DataFrame:
+    if not enriched_path or not numeric_columns:
+        return drug_df
+    path = Path(enriched_path)
+    if not path.exists():
+        logger.warning("Enriched drug metadata not found at %s; skipping.", path)
+        return drug_df
+
+    enriched_df = pd.read_parquet(path)
+    if "drug" not in enriched_df.columns:
+        logger.warning("Enriched metadata missing 'drug' column; skipping.")
+        return drug_df
+
+    numeric_cols = [col for col in numeric_columns if col in enriched_df.columns]
+    if not numeric_cols:
+        logger.warning("No enriched numeric columns found in %s; skipping.", path)
+        return drug_df
+
+    extra = enriched_df[["drug", *numeric_cols]].copy()
+    extra["drug"] = extra["drug"].astype(str)
+    for col in numeric_cols:
+        extra[col] = pd.to_numeric(extra[col], errors="coerce")
+
+    means = extra[numeric_cols].mean()
+    stds = extra[numeric_cols].std().replace(0, 1)
+    extra[numeric_cols] = (extra[numeric_cols].fillna(means) - means) / stds
+
+    merged = drug_df.copy()
+    merged["drug"] = merged["drug"].astype(str)
+    merged = merged.merge(extra, on="drug", how="left")
+    merged[numeric_cols] = merged[numeric_cols].fillna(0.0)
+    return merged
+
+
+def load_processed_tables(
+    processed_dir: str,
+    use_enriched_drug_features: bool = False,
+    enriched_drug_metadata_path: Optional[str] = None,
+    enriched_numeric_columns: Optional[Iterable[str]] = None,
+) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """
     Convenience loader for the processed parquet tables.
 
@@ -86,6 +141,8 @@ def load_processed_tables(processed_dir: str) -> Tuple[pd.DataFrame, pd.DataFram
     drugs = pd.read_parquet(base / "drug_fingerprints.parquet")
     labels = pd.read_parquet(base / "labels.parquet")
     labels = labels[["cell_line", "drug", "ln_ic50"]]
+    if use_enriched_drug_features:
+        drugs = _append_enriched_drug_features(drugs, enriched_drug_metadata_path, enriched_numeric_columns)
     return omics, drugs, labels
 
 
@@ -95,6 +152,9 @@ def make_loaders_from_split_csv(
     batch_size: int,
     num_workers: int,
     splits: Iterable[str] = ("train", "val", "test"),
+    use_enriched_drug_features: bool = False,
+    enriched_drug_metadata_path: Optional[str] = None,
+    enriched_numeric_columns: Optional[Iterable[str]] = None,
 ) -> Dict[str, DataLoader]:
     """
     Build DataLoaders directly from processed parquet files and a split CSV.
@@ -113,9 +173,37 @@ def make_loaders_from_split_csv(
         Dict mapping split name -> DataLoader yielding dicts with
         'omics', 'drug_fp', and 'y' (ln_ic50) tensors.
     """
-    omics_df, drug_df, _ = load_processed_tables(processed_dir)
+    omics_df, drug_df, _ = load_processed_tables(
+        processed_dir,
+        use_enriched_drug_features=use_enriched_drug_features,
+        enriched_drug_metadata_path=enriched_drug_metadata_path,
+        enriched_numeric_columns=enriched_numeric_columns,
+    )
     split_df = pd.read_csv(split_csv)
 
+    loaders: Dict[str, DataLoader] = {}
+    for split_name in splits:
+        split_labels = split_df[split_df["split"] == split_name][["cell_line", "drug", "ln_ic50"]]
+        if split_labels.empty:
+            continue
+        ds = PairDataset(omics_df, drug_df, split_labels)
+        loaders[split_name] = DataLoader(
+            ds,
+            batch_size=batch_size,
+            shuffle=(split_name == "train"),
+            num_workers=num_workers,
+        )
+    return loaders
+
+
+def make_loaders_from_split_df(
+    omics_df: pd.DataFrame,
+    drug_df: pd.DataFrame,
+    split_df: pd.DataFrame,
+    batch_size: int,
+    num_workers: int,
+    splits: Iterable[str] = ("train", "val", "test"),
+) -> Dict[str, DataLoader]:
     loaders: Dict[str, DataLoader] = {}
     for split_name in splits:
         split_labels = split_df[split_df["split"] == split_name][["cell_line", "drug", "ln_ic50"]]

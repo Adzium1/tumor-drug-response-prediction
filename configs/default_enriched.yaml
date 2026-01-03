@@ -12,9 +12,9 @@ data:
   # Optional: provide a split CSV to override legacy split strategies.
   split_csv: "data/processed/splits/random_pair_split.csv"
   # Optional drug metadata enrichment (disabled by default).
-  use_enriched_drug_features: false
+  use_enriched_drug_features: true
   enriched_drug_metadata_path: "data/processed/drug_metadata_enriched.parquet"
-  enriched_numeric_columns: []
+  enriched_numeric_columns: ["pubchem_logp", "pubchem_tpsa", "pubchem_mw"]
 
 model:
   # Enable VAE to denoise omics features; tune with ablations.
@@ -34,7 +34,7 @@ training:
   # Adam learning rate; adjust alongside batch size.
   lr: 0.001
   weight_decay: 0.0001
-  max_epochs: 100
+  max_epochs: 20
   # Legacy split strategy for fusion training; CSV splits live in scripts/make_splits.py.
   split_strategy: "leave_cell_line_out"
   k_folds: 5

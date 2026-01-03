@@ -12,6 +12,10 @@ class DataConfig:
     metadata_file: Optional[str] = "metadata.parquet"
     n_genes: int = 2000
     fingerprint_bits: int = 1024
+    split_csv: Optional[str] = None
+    use_enriched_drug_features: bool = False
+    enriched_drug_metadata_path: Optional[str] = None
+    enriched_numeric_columns: Optional[list[str]] = None
 
 
 @dataclass
